@@ -17,9 +17,9 @@ I joined the Gozem lab and began learning from them, still am.
 ### BSc, Biochemistry
 When I was 15, I got admitted to Landmark University, Kwara State, Nigeria 
 to study Biochemistry.
-I had no idea what I was doing but I was curious. 
-By the second year, the chemistry and biochemistry made sense 
-and I was getting good at it.
+I was new to the acedemy and curious. 
+By the second year, the chemistry and biochemistry began to make sense 
+and I saw I had a connection with it.
 I also met friends I have till today and some objectively good professors.
 
 

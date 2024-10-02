@@ -1,4 +1,5 @@
 +++
+title = 'personal'
 date = 2024-10-01T09:40:23-04:00
 draft = false
 +++
