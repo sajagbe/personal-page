@@ -1,0 +1,47 @@
+# baseURL: "https://github.com/sajagbe/tst/tree/master"
+languageCode: en-us
+baseURL: ""
+title: soajagbe
+theme: PaperMod
+# DefaultContentLanguage: "en"
+
+menu:
+  main:
+    - identifier: blog
+      name: blog
+      url: /blog/
+      weight: 10
+    - identifier: projects
+      name: projects
+      url: /projects/
+      weight: 20
+    - identifier: bio
+      name: bio
+      url: /bio/
+      weight: 30
+    
+params:
+  profileMode:
+    enabled: true
+    title: "hi. i'm stephen." # optional default will be site title
+    subtitle: I am currently learning how to design better proteins with software.
+    imageUrl: images/pfp copy.jpg# optional
+    # imageTitle: "<title of image as alt>" # optional
+    imageWidth: 120 # custom size
+    imageHeight: 120 # custom size
+    buttons:
+      - name: blog
+        url: "/blog"
+      - name: projects
+        url: "/projects"
+
+  socialIcons: # optional
+    - name: "instagram"
+      url: "https://www.instagram.com/soajagbe/"
+    - name: "youtube"
+      url: "https://www.youtube.com/@soajagbe"
+
+  mainSections:
+    - blog
+
+

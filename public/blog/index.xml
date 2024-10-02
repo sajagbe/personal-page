@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>soajagbe</title>
+    <link>//localhost:1313/blog/</link>
+    <description>Recent content on soajagbe</description>
+    <generator>Hugo -- 0.134.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 30 Sep 2024 22:19:00 -0400</lastBuildDate>
+    <atom:link href="//localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Second</title>
+      <link>//localhost:1313/blog/second/</link>
+      <pubDate>Mon, 30 Sep 2024 22:19:00 -0400</pubDate>
+      <guid>//localhost:1313/blog/second/</guid>
+      <description>&lt;p&gt;jkn,ljnkewdvs&lt;/p&gt;
+&lt;h1 id=&#34;idk-why-its-not-working-well&#34;&gt;Idk why its not working well&lt;/h1&gt;</description>
+    </item>
+    <item>
+      <title>First</title>
+      <link>//localhost:1313/blog/first/</link>
+      <pubDate>Mon, 30 Sep 2024 22:07:57 -0400</pubDate>
+      <guid>//localhost:1313/blog/first/</guid>
+      <description>&lt;h1 id=&#34;heading-1&#34;&gt;Heading 1&lt;/h1&gt;
+&lt;h2 id=&#34;heading-2&#34;&gt;Heading 2&lt;/h2&gt;
+&lt;p&gt;lkjwdsnvkbjvwds&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
