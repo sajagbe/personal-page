@@ -1,6 +1,8 @@
 +++
 date = 2024-10-01T09:40:33-04:00
 draft = false
+weight = 2
+title = 'professional'
 +++
 
 ### PhD, Computational Biophysics
