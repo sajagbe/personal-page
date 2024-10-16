@@ -1,7 +1,7 @@
 ---
 title: 'tobi and friends - a podcast'
 date: 2024-10-01T17:20:43-04:00
-draft: false
+draft: true
 ---
 
 when I find people interesting - and they are available - , I have conversations with them and record these conversations.
