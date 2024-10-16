@@ -28,7 +28,7 @@ I also met friends I have till today and some objectively good professors.
 ### cv/resume
 [Academic CV](https://docs.google.com/document/d/1E4Vk6dbjj_ZWRJ-sSVhOyFLhlsAgLDe0/edit?usp=drive_link&ouid=109651482417121592888&rtpof=true&sd=true)
 
-[Professional Resume](https://drive.google.com/drive/u/0/folders/1dzXflDqBuHTtxfFVRPeD3MAe59N_OJ5b)
+[Professional Resume](https://drive.google.com/file/d/1KiRu7zSTUCz6LWn-hNTEdOb6JnKF3cU0/view?usp=drive_link)
 
 ### publications
 
