@@ -6,42 +6,15 @@
     <description>Recent content on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Oct 2024 17:20:43 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jan 2025 22:33:39 -0500</lastBuildDate>
     <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>tobi and friends - a podcast</title>
-      <link>//localhost:1313/projects/podcast/</link>
-      <pubDate>Tue, 01 Oct 2024 17:20:43 -0400</pubDate>
-      <guid>//localhost:1313/projects/podcast/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title></title>
-      <link>//localhost:1313/bio/professional/</link>
-      <pubDate>Tue, 01 Oct 2024 09:40:33 -0400</pubDate>
-      <guid>//localhost:1313/bio/professional/</guid>
-      <description>&lt;h3 id=&#34;phd-computational-biophysics&#34;&gt;PhD, Computational Biophysics&lt;/h3&gt;
-&lt;p&gt;In December 2021, I came to the US on an F1 to study Bioinformatics
-at Georgia State University.
-I met Dr Gozem, my now supervisor during my Masters and liked working with him.
-I also met the other members of his lab and enjoyed talking theoretical chemistry
-and life with them.
-I joined the Gozem lab and began learning from them, still am.&lt;/p&gt;
-&lt;h3 id=&#34;bsc-biochemistry&#34;&gt;BSc, Biochemistry&lt;/h3&gt;
-&lt;p&gt;When I was 15, I got admitted to Landmark University, Kwara State, Nigeria
-to study Biochemistry.
-I had no idea what I was doing but I was curious.
-By the second year, the chemistry and biochemistry made sense
-and I was getting good at it.
-I also met friends I have till today and some objectively good professors.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title></title>
+      <title>personal</title>
       <link>//localhost:1313/bio/personal/</link>
       <pubDate>Tue, 01 Oct 2024 09:40:23 -0400</pubDate>
       <guid>//localhost:1313/bio/personal/</guid>
-      <description>&lt;p&gt;Currently, I do not take in as much media as I did prior to grad. school. However, of the few I have paid attention to, these I would recommend to anyone who asks.&lt;/p&gt;
-&lt;h3 id=&#34;recommendations&#34;&gt;recommendations&lt;/h3&gt;
+      <description>&lt;h3 id=&#34;recommendations&#34;&gt;recommendations&lt;/h3&gt;
+&lt;p&gt;Currently, I do not take in as much media as I did prior to grad. school. However, of the few I have paid attention to, these I would recommend to anyone who asks.&lt;/p&gt;
 &lt;h4 id=&#34;movies&#34;&gt;movies&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;harry potter 1 - 8. (worthy highlight - harry potter and the goblet of fire)&lt;/li&gt;
@@ -64,21 +37,49 @@ I also met friends I have till today and some objectively good professors.&lt;/p
 &lt;/ul&gt;</description>
     </item>
     <item>
-      <title>Second</title>
-      <link>//localhost:1313/blog/second/</link>
-      <pubDate>Mon, 30 Sep 2024 22:19:00 -0400</pubDate>
-      <guid>//localhost:1313/blog/second/</guid>
-      <description>&lt;p&gt;jkn,ljnkewdvs&lt;/p&gt;
-&lt;h1 id=&#34;idk-why-its-not-working-well&#34;&gt;Idk why its not working well&lt;/h1&gt;</description>
+      <title>professional</title>
+      <link>//localhost:1313/bio/professional/</link>
+      <pubDate>Tue, 01 Oct 2024 09:40:33 -0400</pubDate>
+      <guid>//localhost:1313/bio/professional/</guid>
+      <description>&lt;h3 id=&#34;phd-computational-biophysics&#34;&gt;PhD, Computational Biophysics&lt;/h3&gt;
+&lt;p&gt;In December 2021, I came to the US on an F1 to study Bioinformatics
+at Georgia State University.
+I met Dr Gozem, my now supervisor during my Masters and liked working with him.
+I also met the other members of his lab and enjoyed talking theoretical chemistry
+and life with them.
+I joined the Gozem lab and began learning from them, still am.&lt;/p&gt;
+&lt;h3 id=&#34;bsc-biochemistry&#34;&gt;BSc, Biochemistry&lt;/h3&gt;
+&lt;p&gt;When I was 15, I got admitted to Landmark University, Kwara State, Nigeria
+to study Biochemistry.
+I was new to the acedemy and curious.
+By the second year, the chemistry and biochemistry began to make sense
+and I saw I had a connection with it.
+I also met friends I have till today and some objectively good professors.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>First</title>
-      <link>//localhost:1313/blog/first/</link>
-      <pubDate>Mon, 30 Sep 2024 22:07:57 -0400</pubDate>
-      <guid>//localhost:1313/blog/first/</guid>
-      <description>&lt;h1 id=&#34;heading-1&#34;&gt;Heading 1&lt;/h1&gt;
-&lt;h2 id=&#34;heading-2&#34;&gt;Heading 2&lt;/h2&gt;
-&lt;p&gt;lkjwdsnvkbjvwds&lt;/p&gt;</description>
+      <title>the one where i start Burkov 100 page ml</title>
+      <link>//localhost:1313/blog/burkov-ch1a/</link>
+      <pubDate>Thu, 09 Jan 2025 22:33:39 -0500</pubDate>
+      <guid>//localhost:1313/blog/burkov-ch1a/</guid>
+      <description>&lt;p&gt;he wasted no time with this book.&lt;/p&gt;
+&lt;p&gt;page 1 and i learned an intuitive definition for ml.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;it is training a computer to do things without giving it explicit rules.
+
+it is giving the computer a bunch of data and letting it figure out the
+best mathematical description of the data, then using that description
+to solve a problem of personal interest.
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;notes&#34;&gt;notes:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;i had used model and algorith interchangeably. inaccurate. the ml algorith is the method the computer uses to learn the mathematical description of the relationships in the data. the model is the relationships learned.&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>2025 Week 1</title>
+      <link>//localhost:1313/blog/week1-2025/</link>
+      <pubDate>Thu, 09 Jan 2025 19:40:33 -0500</pubDate>
+      <guid>//localhost:1313/blog/week1-2025/</guid>
+      <description>&lt;p&gt;in this degree, i am learning a lot and i want to understand these things in a personal way and not breeze through with the delusion of understanding. i want to connect to the materials and make them mine.&lt;/p&gt;
+&lt;p&gt;more specifically, at the moment i am starting from scratch for comp. chem. and ml theory because i want to get it. i love the high of just &amp;ldquo;knowing&amp;rdquo; something, truly knowing it.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

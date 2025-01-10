@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>soajagbe</title>
-    <link>//localhost:1313/blog/</link>
-    <description>Recent content on soajagbe</description>
+    <title>Burkov on soajagbe</title>
+    <link>//localhost:1313/tags/burkov/</link>
+    <description>Recent content in Burkov on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 09 Jan 2025 22:33:39 -0500</lastBuildDate>
-    <atom:link href="//localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/burkov/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>the one where i start Burkov 100 page ml</title>
       <link>//localhost:1313/blog/burkov-ch1a/</link>
@@ -24,14 +24,6 @@ to solve a problem of personal interest.
 &lt;ol&gt;
 &lt;li&gt;i had used model and algorith interchangeably. inaccurate. the ml algorith is the method the computer uses to learn the mathematical description of the relationships in the data. the model is the relationships learned.&lt;/li&gt;
 &lt;/ol&gt;</description>
-    </item>
-    <item>
-      <title>2025 Week 1</title>
-      <link>//localhost:1313/blog/week1-2025/</link>
-      <pubDate>Thu, 09 Jan 2025 19:40:33 -0500</pubDate>
-      <guid>//localhost:1313/blog/week1-2025/</guid>
-      <description>&lt;p&gt;in this degree, i am learning a lot and i want to understand these things in a personal way and not breeze through with the delusion of understanding. i want to connect to the materials and make them mine.&lt;/p&gt;
-&lt;p&gt;more specifically, at the moment i am starting from scratch for comp. chem. and ml theory because i want to get it. i love the high of just &amp;ldquo;knowing&amp;rdquo; something, truly knowing it.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
