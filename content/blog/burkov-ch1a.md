@@ -25,4 +25,4 @@ to solve a problem of personal interest.
 
 ### notes:
 
-1. i had used model and algorithm interchangeably. inaccurate. the ml algorithm is the method the computer uses to learn the mathematical description of the relationships in the data. the model is the relationships learned.
+1. i had used "model" and "algorithm" interchangeably. inaccurate. the ml algorithm is the method the computer uses to learn the mathematical description of the relationships in the data. the model is the relationships learned.
