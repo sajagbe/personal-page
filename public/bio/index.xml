@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>soajagbe</title>
-    <link>//localhost:1313/bio/</link>
+    <link>http://localhost:1313/bio/</link>
     <description>Recent content on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Oct 2024 09:40:33 -0400</lastBuildDate>
-    <atom:link href="//localhost:1313/bio/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/bio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>personal</title>
-      <link>//localhost:1313/bio/personal/</link>
+      <link>http://localhost:1313/bio/personal/</link>
       <pubDate>Tue, 01 Oct 2024 09:40:23 -0400</pubDate>
-      <guid>//localhost:1313/bio/personal/</guid>
+      <guid>http://localhost:1313/bio/personal/</guid>
       <description>&lt;h3 id=&#34;recommendations&#34;&gt;recommendations&lt;/h3&gt;
 &lt;p&gt;Currently, I do not take in as much media as I did prior to grad. school. However, of the few I have paid attention to, these I would recommend to anyone who asks.&lt;/p&gt;
 &lt;h4 id=&#34;movies&#34;&gt;movies&lt;/h4&gt;
@@ -38,9 +38,9 @@
     </item>
     <item>
       <title>professional</title>
-      <link>//localhost:1313/bio/professional/</link>
+      <link>http://localhost:1313/bio/professional/</link>
       <pubDate>Tue, 01 Oct 2024 09:40:33 -0400</pubDate>
-      <guid>//localhost:1313/bio/professional/</guid>
+      <guid>http://localhost:1313/bio/professional/</guid>
       <description>&lt;h3 id=&#34;phd-computational-biophysics&#34;&gt;PhD, Computational Biophysics&lt;/h3&gt;
 &lt;p&gt;In December 2021, I came to the US on an F1 to study Bioinformatics
 at Georgia State University.

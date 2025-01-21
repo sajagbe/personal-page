@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>soajagbe</title>
-    <link>//localhost:1313/blog/</link>
+    <link>http://localhost:1313/blog/</link>
     <description>Recent content on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 Jan 2025 16:19:21 -0500</lastBuildDate>
-    <atom:link href="//localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>univariate linear regression and gradient descent</title>
-      <link>//localhost:1313/blog/week2-2025/</link>
+      <link>http://localhost:1313/blog/week2-2025/</link>
       <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
-      <guid>//localhost:1313/blog/week2-2025/</guid>
+      <guid>http://localhost:1313/blog/week2-2025/</guid>
       <description>&lt;p&gt;this is a short summary of the first week of the machine learning course by andrew ng.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;supervised ml:&lt;/strong&gt;
 giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest”.&lt;/p&gt;
@@ -21,10 +21,10 @@ giving the computer a data set with sample answers of interest and telling it �
 &lt;p&gt;can be linear, logistic or more idk yet.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>this week i started learning ml</title>
-      <link>//localhost:1313/blog/week1-2025/</link>
+      <title>ml start</title>
+      <link>http://localhost:1313/blog/week1-2025/</link>
       <pubDate>Thu, 09 Jan 2025 19:40:33 -0500</pubDate>
-      <guid>//localhost:1313/blog/week1-2025/</guid>
+      <guid>http://localhost:1313/blog/week1-2025/</guid>
       <description>&lt;p&gt;i want to continue posting online regularly.&lt;/p&gt;
 &lt;p&gt;hence this first post.&lt;/p&gt;
 &lt;p&gt;i started learning ml with andrew ng&amp;rsquo;s &lt;a href=&#34;https://www.coursera.org/specializations/machine-learning-introduction&#34;&gt;ml specialization&lt;/a&gt;.&lt;/p&gt;

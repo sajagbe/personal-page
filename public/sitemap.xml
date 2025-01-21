@@ -2,51 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//localhost:1313/bio/personal/</loc>
+    <loc>http://localhost:1313/bio/personal/</loc>
     <lastmod>2024-10-01T09:40:23-04:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/bio/professional/</loc>
+    <loc>http://localhost:1313/bio/professional/</loc>
     <lastmod>2024-10-01T09:40:33-04:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/</loc>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-01-20T16:19:21-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/</loc>
+    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2025-01-20T16:19:21-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/andrew-ng/</loc>
+    <loc>http://localhost:1313/tags/andrew-ng/</loc>
     <lastmod>2025-01-20T16:19:21-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/gradient-descent/</loc>
+    <loc>http://localhost:1313/tags/gradient-descent/</loc>
     <lastmod>2025-01-20T16:19:21-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/katex/</loc>
+    <loc>http://localhost:1313/tags/katex/</loc>
     <lastmod>2025-01-20T16:19:21-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/linear-regression/</loc>
+    <loc>http://localhost:1313/tags/linear-regression/</loc>
     <lastmod>2025-01-20T16:19:21-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/machine-learning/</loc>
+    <loc>http://localhost:1313/tags/machine-learning/</loc>
     <lastmod>2025-01-20T16:19:21-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2025-01-20T16:19:21-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/week2-2025/</loc>
+    <loc>http://localhost:1313/blog/week2-2025/</loc>
     <lastmod>2025-01-20T16:19:21-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/tags/qchem/</loc>
+    <loc>http://localhost:1313/blog/week1-2025/</loc>
     <lastmod>2025-01-09T19:40:33-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/blog/week1-2025/</loc>
+    <loc>http://localhost:1313/tags/qchem/</loc>
     <lastmod>2025-01-09T19:40:33-05:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/projects/</loc>
+    <loc>http://localhost:1313/projects/</loc>
     <lastmod>2024-10-01T17:20:43-04:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/bio/</loc>
+    <loc>http://localhost:1313/bio/</loc>
     <lastmod>2024-10-01T09:40:33-04:00</lastmod>
   </url><url>
-    <loc>//localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/categories/</loc>
   </url>
 </urlset>
