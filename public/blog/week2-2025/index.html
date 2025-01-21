@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>univariate linear regression and gradient descent | soajagbe</title>
+<meta name="keywords" content="machine learning, andrew ng, linear regression, gradient descent, katex">
+<meta name="description" content="this is a short summary of the first week of the machine learning course by andrew ng.
+supervised ml:
+giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest”.
+can be: regression (used for in discrete and continuous answers) or classsification (used for discrete incontinuous answers, typically called classes)&gt;
+regression:
+can be linear, logistic or more idk yet.">
+<meta name="author" content="">
+<link rel="canonical" href="//localhost:1313/blog/week2-2025/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="//localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="//localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="//localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="//localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="//localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="//localhost:1313/blog/week2-2025/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="//localhost:1313/" accesskey="h" title="soajagbe (Alt + H)">soajagbe</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="//localhost:1313/blog/" title="blog">
+                    <span>blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="//localhost:1313/projects/" title="projects">
+                    <span>projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="//localhost:1313/bio/" title="bio">
+                    <span>bio</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      univariate linear regression and gradient descent
+    </h1>
+    <div class="post-meta"><span title='2025-01-20 16:19:21 -0500 EST'>January 20, 2025</span>&nbsp;·&nbsp;5 min
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#regression" aria-label="regression:">regression:</a><ul>
+                        
+                <li>
+                    <a href="#linear-regression" aria-label="linear regression:">linear regression:</a><ul>
+                        
+                <li>
+                    <a href="#cost-function" aria-label="cost function:">cost function:</a></li>
+                <li>
+                    <a href="#gradient-descent" aria-label="gradient descent:">gradient descent:</a></li></ul>
+                </li>
+                <li>
+                    <a href="#notes" aria-label="notes:">notes:</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>this is a short summary of the first week of the machine learning course by andrew ng.</p>
+<p><strong>supervised ml:</strong>
+giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest”.</p>
+<p>can be: <strong>regression</strong> (used for in discrete and continuous answers) or <strong>classsification</strong> (used for discrete incontinuous answers, typically called classes)&gt;</p>
+<h2 id="regression">regression:<a hidden class="anchor" aria-hidden="true" href="#regression">#</a></h2>
+<p>can be linear, logistic or more idk yet.</p>
+<h3 id="linear-regression"><strong>linear regression:</strong><a hidden class="anchor" aria-hidden="true" href="#linear-regression">#</a></h3>
+<p>involves fitting a line to the spread of the data set. by fitting I mean getting the direction and orientation of a line that lines up with the data set to minimize the distance between the line itself and each point of the data set.</p>
+<p>when the items of the set have a single feature, a univariate l.r. function should be adequate, viz:</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>=</mo><mi>w</mi><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo>+</mo><mi>b</mi></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(1)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">
+f_{w,b}(x^{(i)}) = wx^{(i)} + b \tag{1}
+</annotation></semantics></math></span>
+<p><strong>where:</strong>
+
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(i)}</annotation></semantics></math></span>
+ is the x variable / feature of ith item in the data set.</p>
+<p>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
+w is the weight of said feature. this describes how much the feature contributes to the final predicted output.</p>
+<p>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
+b is the bias of this function. it is a way to shift the first part of the equation closer to an accurate answer. this number has to be somewhat applicable to the whole data set.</p>
+<p>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_{w,b}(x^{(i)})</annotation></semantics></math></span>
+ means “here’s a function containing both w and b but dependent on a variable 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(i)}</annotation></semantics></math></span>
+.</p>
+<h4 id="cost-function"><strong>cost function:</strong><a hidden class="anchor" aria-hidden="true" href="#cost-function">#</a></h4>
+<blockquote>
+<p><strong>q1</strong>: given that the point of a l.r. model is a line best fitted to the data set, how do we make it happen - especially for any data set?</p>
+</blockquote>
+<blockquote>
+<p><strong>a:</strong> by providing a value describing the inaccuracy of this fitting, then gradually reducing this value till it is as low as possible. the value above is termed a cost function as it describes the cost of using the equation (a.k.a m.l model) to predict the output instead of getting the real life answer of interest.</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<p>it is given by:</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></munderover><mo stretchy="false">(</mo><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>−</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(2)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2\tag{2}</annotation></semantics></math></span>
+<p>where 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">y^{(i)}</annotation></semantics></math></span>
+ is the sample output / answer of interest for the ith item in the data set.</p>
+<blockquote>
+<p><strong>fun fact:</strong> if the whole data set falls on the line, the cost function 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ will be 0.</p>
+</blockquote>
+<p>to develop a good linear regression model, the software picks a model equation, say, 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>=</mo><mn>2</mn><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo>+</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">f_{w,b}(x^{(i)}) = 2x^{(i)} + 7</annotation></semantics></math></span>
+ , then inputs the variable for each item in the dataset for 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(i)}</annotation></semantics></math></span>
+   and gets the prediction 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_{w,b}(x^{(i)})</annotation></semantics></math></span>
+. after doing this for the full data set, it then subtracts the prediction 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(f_{w,b}(x^{(i)}))</annotation></semantics></math></span>
+ from the provided 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">y^{(i)}</annotation></semantics></math></span>
+ for each item in the data set and sums the differences.</p>
+<blockquote>
+<p><strong>q2:</strong> why the m and 2 in the denominator?</p>
+</blockquote>
+<blockquote>
+<p><strong>a:</strong> the m in the denominator is to reduce / normalize the size of 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ as the data set grows. since the curve will have the same slope scaled up or down, the division by 2 serves to scaledown 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ here and later on do the same for its derivative.</p>
+</blockquote>
+<h4 id="gradient-descent">gradient descent:<a hidden class="anchor" aria-hidden="true" href="#gradient-descent">#</a></h4>
+<p><strong>next, how do we minimize this 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ value?</strong></p>
+<p>given the cost function 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ is a quadratic equation, the plot will always be a U shaped curve. this means there is definitely a minimum 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ and to get there you’ll need to find the slope at a point of 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ where you currently are. with this information, you’ll know which direction will take you to the minimum. e.g. if its 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ (y axis) against w (yx axis), and you’re on the left side of the evenly split U, a negative slope will get you down and the reverse for the right side.</p>
+<p>to get this slope you differentiate 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+:</p>
+<p>because 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ depends on 2 variables, you’ll need to differentiate w.r.t each. By this, I mean, 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>w</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\partial J(w,b)}{\partial w}</annotation></semantics></math></span>
+  and   
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>b</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\partial J(w,b)}{\partial b}</annotation></semantics></math></span>
+, which I solve below.</p>
+<p>starting with 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>w</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\partial J(w,b)}{\partial w}</annotation></semantics></math></span>
+, which is:</p>
+<p>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mfrac><mi mathvariant="normal">∂</mi><mrow><mi mathvariant="normal">∂</mi><mi>ω</mi></mrow></mfrac><mrow><mo fence="true">[</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><mo stretchy="false">(</mo><mi>f</mi><mi>x</mi><mo>−</mo><mi>y</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">=\frac{\partial}{\partial \omega}\left[\frac{1}{2m}(fx-y)^2\right]</annotation></semantics></math></span>
+ from equation 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(2)</annotation></semantics></math></span>
+</p>
+<p>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><mrow><mo fence="true">[</mo><mfrac><mi mathvariant="normal">∂</mi><mrow><mi mathvariant="normal">∂</mi><mi>ω</mi></mrow></mfrac><mo stretchy="false">(</mo><mi>f</mi><mi>x</mi><mo>−</mo><mi>y</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">= \frac{1}{2m}\left[\frac{\partial}{\partial \omega}(fx-y)^2\right]</annotation></semantics></math></span>
+,</p>
+<p>according to the chain rule, 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>δ</mi><mo stretchy="false">(</mo><msup><mi>J</mi><mn>2</mn></msup><mo stretchy="false">)</mo></mrow><mrow><mi>δ</mi><mi>x</mi></mrow></mfrac><mo>=</mo><mn>2</mn><mi>J</mi><mo>⋅</mo><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi></mrow><mrow><mi mathvariant="normal">∂</mi><mi>x</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\delta(J^2)}{\delta x} = 2J \cdot \frac{\partial J}{\partial x}</annotation></semantics></math></span>
+</p>
+<p>therefore:</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><mrow><mo fence="true">[</mo><mfrac><mi mathvariant="normal">∂</mi><mrow><mi mathvariant="normal">∂</mi><mi>ω</mi></mrow></mfrac><mo stretchy="false">(</mo><mi>f</mi><mi>x</mi><mo>−</mo><mi>y</mi><msup><mo stretchy="false">)</mo><mn>2</mn></msup><mo fence="true">]</mo></mrow><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><mrow><mo fence="true">[</mo><mn>2</mn><mo stretchy="false">(</mo><mi>f</mi><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo><mo>⋅</mo><mfrac><mrow><mi>δ</mi><mo stretchy="false">(</mo><mi>f</mi><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mrow><mi>δ</mi><mi>ω</mi></mrow></mfrac><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">\frac{1}{2m}\left[\frac{\partial}{\partial \omega}(fx-y)^2\right]
+= \frac{1}{2m}\left[2(fx-y) \cdot \frac{\delta(fx-y)}{\delta \omega}\right]</annotation></semantics></math></span>
+<p>since,
+</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>f</mi><mi>x</mi></msub><mo>=</mo><mi>ω</mi><mi>x</mi><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex"> f_x = \omega x + b</annotation></semantics></math></span>
+<p>therefore,
+</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>f</mi><mi>x</mi></msub><mo>−</mo><mi>y</mi><mo>=</mo><mi>ω</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo>−</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">f_x - y = \omega x + b - y</annotation></semantics></math></span>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mo stretchy="false">(</mo><mi>ω</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>ω</mi></mrow></mfrac><mo>=</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\frac{\partial(\omega x + b - y)}{\partial \omega} = x </annotation></semantics></math></span>
+<p>thus:
+</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>ω</mi></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><mo stretchy="false">(</mo><msub><mi>f</mi><mi>x</mi></msub><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo><mi>x</mi></mrow><annotation encoding="application/x-tex">\frac{\partial(J)}{\partial \omega} = \frac{1}{m}(f_x-y)x </annotation></semantics></math></span>
+<p>for 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>b</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\partial J(w,b)}{\partial b}</annotation></semantics></math></span>
+:</p>
+<p>because 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
+ has no coefficient in 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>ω</mi><mi>x</mi><mo>+</mo><mi>b</mi><mo>−</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">\omega x + b - y</annotation></semantics></math></span>
+, the derivative 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi>δ</mi><mo stretchy="false">(</mo><mi>f</mi><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><mrow><mi>δ</mi><mi>ω</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\delta(fx-y)}{\delta \omega}</annotation></semantics></math></span>
+ will go to 0.
+and since they share the same 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><mn>2</mn><mo stretchy="false">(</mo><mi>f</mi><mi>x</mi><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\frac{1}{2m}2(fx-y)</annotation></semantics></math></span>
+ part:
+</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>b</mi></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><mo stretchy="false">(</mo><msub><mi>f</mi><mi>x</mi></msub><mo>−</mo><mi>y</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\frac{\partial(J)}{\partial b} = \frac{1}{m}(f_x-y) </annotation></semantics></math></span>
+<p>while this gets us the slope of 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ for one point on the plot, we have to move in the direction of this slope to get to the bottom of the plot (i.e. descend down the gradient/slope of the plot). for this we have to do the above 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ differentiation and update the parameters w and b at avery step. To do this we use a learning rate variable 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>α</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(\alpha)</annotation></semantics></math></span>
+ to multiply the slope and determine how fast we want to change w and b. This efficiently minimizes 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ in that direction, till we get to a point where 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>w</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\partial J(w,b)}{\partial w}</annotation></semantics></math></span>
+  and  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>b</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\partial J(w,b)}{\partial b}</annotation></semantics></math></span>
+  give zero and we stop updating 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
+ and 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
+.</p>
+<p>i.e. we repeat the following until convergence:</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>w</mi><mo>=</mo><mi>w</mi><mo>−</mo><mi>α</mi><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>w</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex"> w = w - \alpha \frac{\partial J(w,b)}{\partial w} </annotation></semantics></math></span>
+<p> and,
+</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>b</mi><mo>=</mo><mi>b</mi><mo>−</mo><mi>α</mi><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>b</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex"> b = b - \alpha \frac{\partial J(w,b)}{\partial b} </annotation></semantics></math></span>
+<p>this process eventually gives us the optimal 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>=</mo><mi>w</mi><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">f_{w,b}(x^{(i)}) = wx^{(i)} + b</annotation></semantics></math></span>
+  for the specific dataset, because at these values of 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
+ and 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
+, the cost function is the lowest.</p>
+<h3 id="notes">notes:<a hidden class="anchor" aria-hidden="true" href="#notes">#</a></h3>
+<ol>
+<li>if at a point 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
+ = 2 and 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
+ = 4, and after updating 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
+  = 6, do not use this new 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
+  to update 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
+. make sure to always use the corresponding values for each updating step.</li>
+<li>if 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>α</mi></mrow><annotation encoding="application/x-tex">\alpha</annotation></semantics></math></span>
+  is too low, the descent will be slow but eventual, however if it is too high, it will be ineffective because instead of simply going down, the value of 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
+ will flip flop from one side of U to the other while also increasing in magnitude at every step.</li>
+<li>near the minimum, the slope reduces therefore the magnitudes of changes is w and b also reduce.</li>
+<li>getting katex to work for this post was a pain until i found Tom&rsquo;s guide <a href="https://tomdvies.com/posts/buildingwebsite/">here</a>, making sure to modify my theme&rsquo;s default files.</li>
+</ol>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="//localhost:1313/tags/machine-learning/">Machine Learning</a></li>
+      <li><a href="//localhost:1313/tags/andrew-ng/">Andrew Ng</a></li>
+      <li><a href="//localhost:1313/tags/linear-regression/">Linear Regression</a></li>
+      <li><a href="//localhost:1313/tags/gradient-descent/">Gradient Descent</a></li>
+      <li><a href="//localhost:1313/tags/katex/">Katex</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="//localhost:1313/">soajagbe</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

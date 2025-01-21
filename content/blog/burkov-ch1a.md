@@ -1,7 +1,7 @@
 +++
 title = 'the one where i start Burkov 100 page ml'
 date = 2025-01-09T22:33:39-05:00
-draft = false
+draft = true
 tags = ["burkov", "machine learning"]
 +++
 

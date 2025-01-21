@@ -6,8 +6,43 @@
     <description>Recent content in Tags on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jan 2025 22:33:39 -0500</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jan 2025 16:19:21 -0500</lastBuildDate>
     <atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Andrew Ng</title>
+      <link>//localhost:1313/tags/andrew-ng/</link>
+      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
+      <guid>//localhost:1313/tags/andrew-ng/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gradient Descent</title>
+      <link>//localhost:1313/tags/gradient-descent/</link>
+      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
+      <guid>//localhost:1313/tags/gradient-descent/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Katex</title>
+      <link>//localhost:1313/tags/katex/</link>
+      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
+      <guid>//localhost:1313/tags/katex/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linear Regression</title>
+      <link>//localhost:1313/tags/linear-regression/</link>
+      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
+      <guid>//localhost:1313/tags/linear-regression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>//localhost:1313/tags/machine-learning/</link>
+      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
+      <guid>//localhost:1313/tags/machine-learning/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Burkov</title>
       <link>//localhost:1313/tags/burkov/</link>
@@ -16,10 +51,10 @@
       <description></description>
     </item>
     <item>
-      <title>Machine Learning</title>
-      <link>//localhost:1313/tags/machine-learning/</link>
-      <pubDate>Thu, 09 Jan 2025 22:33:39 -0500</pubDate>
-      <guid>//localhost:1313/tags/machine-learning/</guid>
+      <title>Qchem</title>
+      <link>//localhost:1313/tags/qchem/</link>
+      <pubDate>Thu, 09 Jan 2025 19:40:33 -0500</pubDate>
+      <guid>//localhost:1313/tags/qchem/</guid>
       <description></description>
     </item>
   </channel>

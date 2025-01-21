@@ -21,6 +21,9 @@ menu:
       weight: 30
     
 params:
+  # ShowBreadCrumbs: true
+  # math:  true
+  ShowReadingTime: true
   profileMode:
     enabled: true
     title: "hi. i'm stephen." # optional default will be site title
@@ -44,4 +47,17 @@ params:
   mainSections:
     - blog
 
-
+markup:
+  goldmark:
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+            - ['\[', '\]']
+            - ['$$', '$$']
+          inline:
+            - ['\(', '\)']
+    parser:
+      attribute:
+        block: true

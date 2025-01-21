@@ -6,7 +6,18 @@
     <description>Recent content on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate></lastBuildDate>
+    <lastBuildDate>Tue, 01 Oct 2024 17:20:43 -0400</lastBuildDate>
     <atom:link href="//localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tobi and friends - a podcast</title>
+      <link>//localhost:1313/projects/podcast/</link>
+      <pubDate>Tue, 01 Oct 2024 17:20:43 -0400</pubDate>
+      <guid>//localhost:1313/projects/podcast/</guid>
+      <description>&lt;p&gt;when I find people interesting - and they are available - , I have conversations with them and record these conversations.&lt;/p&gt;
+&lt;p&gt;sometimes, I learn something from them, other times, I simply enjoy the conversation.&lt;/p&gt;
+&lt;p&gt;eitherway, it is worth it because I enjoyed making these.
+Hope you enjoy listening.&lt;/p&gt;
+&lt;p&gt;s.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

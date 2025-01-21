@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>soajagbe</title>
-    <link>//localhost:1313/blog/</link>
-    <description>Recent content on soajagbe</description>
+    <title>Andrew Ng on soajagbe</title>
+    <link>//localhost:1313/tags/andrew-ng/</link>
+    <description>Recent content in Andrew Ng on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 Jan 2025 16:19:21 -0500</lastBuildDate>
-    <atom:link href="//localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="//localhost:1313/tags/andrew-ng/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>univariate linear regression and gradient descent</title>
       <link>//localhost:1313/blog/week2-2025/</link>
@@ -21,23 +21,6 @@
 &lt;strong&gt;classsification&lt;/strong&gt;: used for discrete incontinuous answers, typically called classes.&lt;/p&gt;
 &lt;h3 id=&#34;regression&#34;&gt;regression:&lt;/h3&gt;
 &lt;p&gt;can be linear, logistic or more idk yet.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>the one where i start Burkov 100 page ml</title>
-      <link>//localhost:1313/blog/burkov-ch1a/</link>
-      <pubDate>Thu, 09 Jan 2025 22:33:39 -0500</pubDate>
-      <guid>//localhost:1313/blog/burkov-ch1a/</guid>
-      <description>&lt;p&gt;he wasted no time with this book.&lt;/p&gt;
-&lt;p&gt;page 1 and i learned an intuitive definition for ml.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;it is training a computer to do things without giving it explicit rules.
-
-it is giving the computer a bunch of data and letting it figure out the
-best mathematical description of the data, then using that description
-to solve a problem of personal interest.
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;notes&#34;&gt;notes:&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;i had used &amp;ldquo;model&amp;rdquo; and &amp;ldquo;algorithm&amp;rdquo; interchangeably. inaccurate. the ml algorithm is the method the computer uses to learn the mathematical description of the relationships in the data. the model is the relationships learned.&lt;/li&gt;
-&lt;/ol&gt;</description>
     </item>
     <item>
       <title>this week i started learning ml</title>
