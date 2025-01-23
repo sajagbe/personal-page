@@ -5,14 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>univariate linear regression and gradient descent | soajagbe</title>
+<title>linear regression and gradient descent | soajagbe</title>
 <meta name="keywords" content="machine learning, andrew ng, linear regression, gradient descent, katex">
 <meta name="description" content="this is a short summary of the first week of the machine learning course by andrew ng.
+first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.
 supervised ml:
-giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest”.
-can be: regression (used for in discrete and continuous answers) or classsification (used for discrete incontinuous answers, typically called classes)&gt;
-regression:
-can be linear, logistic or more idk yet.">
+giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &ldquo;learn how to get me the answers I care about given this dataset&rdquo;.">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/blog/week2-2025/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
@@ -129,9 +127,9 @@ can be linear, logistic or more idk yet.">
   <header class="post-header">
     
     <h1 class="post-title entry-hint-parent">
-      univariate linear regression and gradient descent
+      linear regression and gradient descent
     </h1>
-    <div class="post-meta"><span title='2025-01-20 16:19:21 -0500 EST'>January 20, 2025</span>&nbsp;·&nbsp;5 min
+    <div class="post-meta"><span title='2025-01-20 16:19:21 -0500 EST'>January 20, 2025</span>&nbsp;·&nbsp;6 min
 
 </div>
   </header> <div class="toc">
@@ -162,14 +160,16 @@ can be linear, logistic or more idk yet.">
     </details>
 </div>
 
-  <div class="post-content"><p>this is a short summary of the first week of the machine learning course by andrew ng.</p>
+  <div class="post-content"><p>this is a short summary of the first week of the <a href="https://www.coursera.org/learn/machine-learning">machine learning course</a> by andrew ng.</p>
+<p>first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.</p>
 <p><strong>supervised ml:</strong>
-giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest”.</p>
-<p>can be: <strong>regression</strong> (used for in discrete and continuous answers) or <strong>classsification</strong> (used for discrete incontinuous answers, typically called classes)&gt;</p>
-<h2 id="regression">regression:<a hidden class="anchor" aria-hidden="true" href="#regression">#</a></h2>
+giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &ldquo;learn how to get me the answers I care about given this dataset&rdquo;.</p>
+<p>models used for this can be: regression (used for in discrete and continuous answers) or classsification (used for discrete incontinuous answers, typically called classes).</p>
+<p>next, he began with regression.</p>
+<h1 id="regression">regression:<a hidden class="anchor" aria-hidden="true" href="#regression">#</a></h1>
 <p>can be linear, logistic or more idk yet.</p>
-<h3 id="linear-regression"><strong>linear regression:</strong><a hidden class="anchor" aria-hidden="true" href="#linear-regression">#</a></h3>
-<p>involves fitting a line to the spread of the data set. by fitting I mean getting the direction and orientation of a line that lines up with the data set to minimize the distance between the line itself and each point of the data set.</p>
+<h2 id="linear-regression"><strong>linear regression:</strong><a hidden class="anchor" aria-hidden="true" href="#linear-regression">#</a></h2>
+<p>involves fitting a line to the spread of the data set. by fitting I mean directing and orienting a line such that it lines up with the data and minimizes the distance between the line itself and each point of the data set.</p>
 <p>when the items of the set have a single feature, a univariate l.r. function should be adequate, viz:</p>
 
   
@@ -182,23 +182,23 @@ f_{w,b}(x^{(i)}) = wx^{(i)} + b \tag{1}
  is the x variable / feature of ith item in the data set.</p>
 <p>
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
-w is the weight of said feature. this describes how much the feature contributes to the final predicted output.</p>
+ is the weight of said feature. this describes how much the feature contributes to the final predicted output.</p>
 <p>
-  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
-b is the bias of this function. it is a way to shift the first part of the equation closer to an accurate answer. this number has to be somewhat applicable to the whole data set.</p>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
+ is the bias of this function. it is a way to shift the first part of the equation closer to an accurate answer. this number has to be somewhat applicable to the whole data set.</p>
 <p>
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_{w,b}(x^{(i)})</annotation></semantics></math></span>
  means “here’s a function containing both w and b but dependent on a variable 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(i)}</annotation></semantics></math></span>
 &quot;.</p>
-<h4 id="cost-function"><strong>cost function:</strong><a hidden class="anchor" aria-hidden="true" href="#cost-function">#</a></h4>
+<h3 id="cost-function"><strong>cost function:</strong><a hidden class="anchor" aria-hidden="true" href="#cost-function">#</a></h3>
 <blockquote>
 <p><strong>q1</strong>: given that the point of a l.r. model is a line best fitted to the data set, how do we make it happen - especially for any data set?</p>
 </blockquote>
 <blockquote>
 <p><strong>a:</strong> by providing a value describing the inaccuracy of this fitting, then gradually reducing this value till it is as low as possible. the value above is termed a cost function as it describes the cost of using the equation (a.k.a m.l model) to predict the output instead of getting the real life answer of interest.</p>
 </blockquote>
-</aside>
+<!-- raw HTML omitted -->
 <p>it is given by:</p>
 
   
@@ -215,7 +215,7 @@ b is the bias of this function. it is a way to shift the first part of the equat
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>=</mo><mn>2</mn><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo>+</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">f_{w,b}(x^{(i)}) = 2x^{(i)} + 7</annotation></semantics></math></span>
  , then inputs the variable for each item in the dataset for 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(i)}</annotation></semantics></math></span>
-   and gets the prediction 
+ and gets the prediction 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">f_{w,b}(x^{(i)})</annotation></semantics></math></span>
 . after doing this for the full data set, it then subtracts the prediction 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(f_{w,b}(x^{(i)}))</annotation></semantics></math></span>
@@ -232,10 +232,10 @@ b is the bias of this function. it is a way to shift the first part of the equat
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
  here and later on do the same for its derivative.</p>
 </blockquote>
-<h4 id="gradient-descent">gradient descent:<a hidden class="anchor" aria-hidden="true" href="#gradient-descent">#</a></h4>
-<p><strong>next, how do we minimize this 
+<h3 id="gradient-descent">gradient descent:<a hidden class="anchor" aria-hidden="true" href="#gradient-descent">#</a></h3>
+<p>this answers the question, how do we minimize this 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
- value?</strong></p>
+ value?</p>
 <p>given the cost function 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
  is a quadratic equation, the plot will always be a U shaped curve. this means there is definitely a minimum 
@@ -244,7 +244,7 @@ b is the bias of this function. it is a way to shift the first part of the equat
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
  where you currently are. with this information, you’ll know which direction will take you to the minimum. e.g. if its 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
- (y axis) against w (yx axis), and you’re on the left side of the evenly split U, a negative slope will get you down and the reverse for the right side.</p>
+ (y axis) against w (x axis), and you’re on the left side of the evenly split U, a negative slope will get you down and the reverse for the right side.</p>
 <p>to get this slope you differentiate 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
 :</p>
@@ -342,7 +342,7 @@ and since they share the same
  and 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
 , the cost function is the lowest.</p>
-<h3 id="notes">notes:<a hidden class="anchor" aria-hidden="true" href="#notes">#</a></h3>
+<h2 id="notes">notes:<a hidden class="anchor" aria-hidden="true" href="#notes">#</a></h2>
 <ol>
 <li>if at a point 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
@@ -448,6 +448,24 @@ and since they share the same
     })
 
 </script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '\\(', right: '\\)', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+    
+
 </body>
 
 </html>

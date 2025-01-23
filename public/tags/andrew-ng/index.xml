@@ -9,16 +9,14 @@
     <lastBuildDate>Mon, 20 Jan 2025 16:19:21 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/andrew-ng/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>univariate linear regression and gradient descent</title>
+      <title>linear regression and gradient descent</title>
       <link>http://localhost:1313/blog/week2-2025/</link>
       <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
       <guid>http://localhost:1313/blog/week2-2025/</guid>
-      <description>&lt;p&gt;this is a short summary of the first week of the machine learning course by andrew ng.&lt;/p&gt;
+      <description>&lt;p&gt;this is a short summary of the first week of the &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;machine learning course&lt;/a&gt; by andrew ng.&lt;/p&gt;
+&lt;p&gt;first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;supervised ml:&lt;/strong&gt;
-giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest”.&lt;/p&gt;
-&lt;p&gt;can be: &lt;strong&gt;regression&lt;/strong&gt; (used for in discrete and continuous answers) or &lt;strong&gt;classsification&lt;/strong&gt; (used for discrete incontinuous answers, typically called classes)&amp;gt;&lt;/p&gt;
-&lt;h2 id=&#34;regression&#34;&gt;regression:&lt;/h2&gt;
-&lt;p&gt;can be linear, logistic or more idk yet.&lt;/p&gt;</description>
+giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &amp;ldquo;learn how to get me the answers I care about given this dataset&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ml start</title>

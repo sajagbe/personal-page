@@ -47,22 +47,38 @@ params:
   mainSections:
     - blog
 
+# markup:
+#   goldmark:
+#     extensions:
+#       passthrough:
+#         enable: true
+#         delimiters:
+#           block:
+#             - ['\[', '\]']
+#             - ['$$', '$$']
+#           inline:
+#             - ['\(', '\)']
+#     parser:
+#       attribute:
+#         block: true
+#     renderer:
+#       unsafe: true
+
+
 markup:
   goldmark:
     extensions:
       passthrough:
-        enable: true
         delimiters:
           block:
-            - ['\[', '\]']
-            - ['$$', '$$']
+          - - \[
+            - \]
+          - - $$
+            - $$
           inline:
-            - ['\(', '\)']
-    parser:
-      attribute:
-        block: true
-    renderer:
-      unsafe: true
+          - - \(
+            - \)
+        enable: true
 
 context:
   production:
