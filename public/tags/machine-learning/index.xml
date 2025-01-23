@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Machine Learning on soajagbe</title>
     <link>http://localhost:1313/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on soajagbe</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 20 Jan 2025 16:19:21 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
@@ -13,14 +13,25 @@
       <link>http://localhost:1313/blog/week2-2025/</link>
       <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
       <guid>http://localhost:1313/blog/week2-2025/</guid>
-      <description>&lt;p&gt;this is a short summary of the first week of the &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;machine learning course&lt;/a&gt; by andrew ng.&lt;/p&gt;&#xA;&lt;p&gt;first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;supervised ml:&lt;/strong&gt;&#xA;giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &amp;ldquo;learn how to get me the answers I care about given this dataset&amp;rdquo;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;this is a short summary of the first week of the &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;machine learning course&lt;/a&gt; by andrew ng.&lt;/p&gt;
+&lt;p&gt;first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;supervised ml:&lt;/strong&gt;
+giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &amp;ldquo;learn how to get me the answers I care about given this dataset&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ml start</title>
       <link>http://localhost:1313/blog/week1-2025/</link>
       <pubDate>Thu, 09 Jan 2025 19:40:33 -0500</pubDate>
       <guid>http://localhost:1313/blog/week1-2025/</guid>
-      <description>&lt;p&gt;i want to continue posting online regularly.&lt;/p&gt;&#xA;&lt;p&gt;hence this first post.&lt;/p&gt;&#xA;&lt;p&gt;i started learning ml with andrew ng&amp;rsquo;s &lt;a href=&#34;https://www.coursera.org/specializations/machine-learning-introduction&#34;&gt;ml specialization&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h3 id=&#34;notes&#34;&gt;notes:&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;last week, i took a hpc course from uc boulder and took some notes. i am going to make a post about it.&lt;/li&gt;&#xA;&lt;li&gt;i learned qchem prints S0 -&amp;gt; SX transition energies at SX optimized geometry, so this is technically not adiabatic excitation energy. at the back of my mind, i am going &amp;ldquo;why would they do that instead of SX energy at SX optimized geometry - S0 energy at S0 optimized geometry?&amp;rdquo;, which is indeed what i typically need when doing calculations. apparently, S2 energy at S2 energy - S0 energy at S2 minimum is called the vertical emission energy, while, the adiabatic excitation energy (AEE) is instead the S2 energy at the S2 minimum - S0 energy at the S0 geometry and i didn&amp;rsquo;t know the difference.&lt;/li&gt;&#xA;&lt;li&gt;i learned a trick to color the files and folders differently in the terminal - &lt;code&gt;ls --color&lt;/code&gt;. added this as an ls alias in my &lt;code&gt;.bashrc&lt;/code&gt; and i like the view.&lt;/li&gt;&#xA;&lt;/ol&gt;</description>
+      <description>&lt;p&gt;i want to continue posting online regularly.&lt;/p&gt;
+&lt;p&gt;hence this first post.&lt;/p&gt;
+&lt;p&gt;i started learning ml with andrew ng&amp;rsquo;s &lt;a href=&#34;https://www.coursera.org/specializations/machine-learning-introduction&#34;&gt;ml specialization&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;notes&#34;&gt;notes:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;last week, i took a hpc course from uc boulder and took some notes. i am going to make a post about it.&lt;/li&gt;
+&lt;li&gt;i learned qchem prints S0 -&amp;gt; SX transition energies at SX optimized geometry, so this is technically not adiabatic excitation energy. at the back of my mind, i am going &amp;ldquo;why would they do that instead of SX energy at SX optimized geometry - S0 energy at S0 optimized geometry?&amp;rdquo;, which is indeed what i typically need when doing calculations. apparently, S2 energy at S2 energy - S0 energy at S2 minimum is called the vertical emission energy, while, the adiabatic excitation energy (AEE) is instead the S2 energy at the S2 minimum - S0 energy at the S0 geometry and i didn&amp;rsquo;t know the difference.&lt;/li&gt;
+&lt;li&gt;i learned a trick to color the files and folders differently in the terminal - &lt;code&gt;ls --color&lt;/code&gt;. added this as an ls alias in my &lt;code&gt;.bashrc&lt;/code&gt; and i like the view.&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
   </channel>
 </rss>

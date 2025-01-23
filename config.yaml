@@ -19,8 +19,7 @@ menu:
       weight: 30
     
 params:
-  # ShowBreadCrumbs: true
-  # math:  true
+  math:  true
   ShowReadingTime: true
   profileMode:
     enabled: true
