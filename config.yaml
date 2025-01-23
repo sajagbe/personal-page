@@ -1,9 +1,7 @@
-# baseURL: "https://github.com/sajagbe/tst/tree/master"
 languageCode: en-us
 baseURL: "https://soajagbe.xyz/"
 title: soajagbe
 theme: PaperMod
-# DefaultContentLanguage: "en"
 
 menu:
   main:
@@ -46,24 +44,6 @@ params:
 
   mainSections:
     - blog
-
-# markup:
-#   goldmark:
-#     extensions:
-#       passthrough:
-#         enable: true
-#         delimiters:
-#           block:
-#             - ['\[', '\]']
-#             - ['$$', '$$']
-#           inline:
-#             - ['\(', '\)']
-#     parser:
-#       attribute:
-#         block: true
-#     renderer:
-#       unsafe: true
-
 
 markup:
   goldmark:
