@@ -30,7 +30,7 @@ Today, I read the transcript of Hamming's You and your research talk found [here
 
 
 
-### Why do people not do great work:
+### Why people do not do great work:
 1. they don't work on important problems, 
 2. they don't become emotionally involved, 
 3. they don't try and change what is difficult to what is easily done but is still important,
