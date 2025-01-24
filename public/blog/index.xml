@@ -6,17 +6,52 @@
     <description>Recent content on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jan 2025 16:19:21 -0500</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jan 2025 19:20:36 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Richard Hamming, On Work</title>
+      <link>http://localhost:1313/blog/hamming-you-and-your-research/</link>
+      <pubDate>Thu, 23 Jan 2025 19:20:36 -0500</pubDate>
+      <guid>http://localhost:1313/blog/hamming-you-and-your-research/</guid>
+      <description>&lt;p&gt;Today, I read the transcript of Hamming&amp;rsquo;s You and your research talk found &lt;a href=&#34;https://www.cs.virginia.edu/~robins/YouAndYourResearch.html&#34;&gt;here&lt;/a&gt; and that’ll be the 2nd material of his I’ll come in contact with. I think it’s a good idea to write down its essence for me.&lt;/p&gt;
+&lt;h3 id=&#34;how-to-choose-work&#34;&gt;How to choose work:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Think before you work. Just hard work is not enough - it must be applied sensibly.&lt;/li&gt;
+&lt;li&gt;Work on important problems. At least with these, the unavoidable struggle to make something could be worthwhile.&lt;/li&gt;
+&lt;li&gt;Work on solutions you can see. “It&amp;rsquo;s not the consequence that makes a problem important, it is that you have a reasonable attack”.&lt;/li&gt;
+&lt;li&gt;Work on scalable solutions. Do not solve an isolated problem except as characteristic of a class.&lt;/li&gt;
+&lt;li&gt;Work on things you’re bold about. “Once you get your courage up and believe that you can do important problems, then you can”.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;how-to-work&#34;&gt;How to work:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Don’t let up. “The good man gets on with the job, given what he&amp;rsquo;s got, and gets the best answer he can”. Alter the problem if necessary.&lt;/li&gt;
+&lt;li&gt;Given two people of approximately the same ability and one person who works ten percent more than the other, the latter will more than twice outproduce the former.&lt;/li&gt;
+&lt;li&gt;Practice tolerating ambiguity. Don’t wait to know everything.&lt;/li&gt;
+&lt;li&gt;When you choose one thing, let go of all else and keep your thoughts on it. Your subconscious will appreciate this clarity.&lt;/li&gt;
+&lt;li&gt;You can educate your bosses. If you want to do something, don&amp;rsquo;t ask, do it. Present them with an accomplished fact. Don&amp;rsquo;t give them a chance to tell you “No“.&lt;/li&gt;
+&lt;li&gt;Learn to work with the system, and you will go as far as the system will support you. Or you can fight it steadily, as a small undeclared war, for the whole of your life.&lt;/li&gt;
+&lt;li&gt;The &lt;em&gt;appearance of conforming&lt;/em&gt; gets you a long way.&lt;/li&gt;
+&lt;li&gt;Learn to use yourself. Your ego is good when used for your benefit.&lt;/li&gt;
+&lt;li&gt;For creative living, get your problems clear and refuse to look at any answers until you&amp;rsquo;ve thought of a solution. E.g read to be updated, not to copy answers.&lt;/li&gt;
+&lt;li&gt;After acheiving competency in a field, pivot. It takes courage to say, “Yes, I will give up my great reputation”.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;why-do-people-not-do-great-work&#34;&gt;Why do people not do great work:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;they don&amp;rsquo;t work on important problems,&lt;/li&gt;
+&lt;li&gt;they don&amp;rsquo;t become emotionally involved,&lt;/li&gt;
+&lt;li&gt;they don&amp;rsquo;t try and change what is difficult to what is easily done but is still important,&lt;/li&gt;
+&lt;li&gt;they keep giving themselves alibis for this hesitation to change.&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
     <item>
       <title>linear regression and gradient descent</title>
       <link>http://localhost:1313/blog/week2-2025/</link>
       <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
       <guid>http://localhost:1313/blog/week2-2025/</guid>
-      <description>&lt;p&gt;this is a short summary of the first week of the &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;machine learning course&lt;/a&gt; by andrew ng.&lt;/p&gt;
-&lt;p&gt;first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.&lt;/p&gt;
+      <description>&lt;p&gt;This is a short summary of the first week of the &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;machine learning course&lt;/a&gt; by Andrew Ng.&lt;/p&gt;
+&lt;p&gt;First thing he covered was the difference between supervised and unsupervised learning, but I currently care about the former.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;supervised ml:&lt;/strong&gt;
-giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &amp;ldquo;learn how to get me the answers I care about given this dataset&amp;rdquo;.&lt;/p&gt;</description>
+Giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &amp;ldquo;learn how to get me the answers I care about given this dataset&amp;rdquo;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ml start</title>

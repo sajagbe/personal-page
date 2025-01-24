@@ -7,10 +7,10 @@
 <meta name="robots" content="noindex, nofollow">
 <title>linear regression and gradient descent | soajagbe</title>
 <meta name="keywords" content="machine learning, andrew ng, linear regression, gradient descent, katex">
-<meta name="description" content="this is a short summary of the first week of the machine learning course by andrew ng.
-first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.
+<meta name="description" content="This is a short summary of the first week of the machine learning course by Andrew Ng.
+First thing he covered was the difference between supervised and unsupervised learning, but I currently care about the former.
 supervised ml:
-giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &ldquo;learn how to get me the answers I care about given this dataset&rdquo;.">
+Giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &ldquo;learn how to get me the answers I care about given this dataset&rdquo;.">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/blog/week2-2025/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
@@ -177,12 +177,12 @@ giving the computer a data set with sample answers of interest and telling it �
     </details>
 </div>
 
-  <div class="post-content"><p>this is a short summary of the first week of the <a href="https://www.coursera.org/learn/machine-learning">machine learning course</a> by andrew ng.</p>
-<p>first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.</p>
+  <div class="post-content"><p>This is a short summary of the first week of the <a href="https://www.coursera.org/learn/machine-learning">machine learning course</a> by Andrew Ng.</p>
+<p>First thing he covered was the difference between supervised and unsupervised learning, but I currently care about the former.</p>
 <p><strong>supervised ml:</strong>
-giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &ldquo;learn how to get me the answers I care about given this dataset&rdquo;.</p>
-<p>models used for this can be: regression (used for in discrete and continuous answers) or classsification (used for discrete incontinuous answers, typically called classes).</p>
-<p>next, he began with regression.</p>
+Giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &ldquo;learn how to get me the answers I care about given this dataset&rdquo;.</p>
+<p>Models used for this can be: regression (used for in discrete and continuous answers) or classsification (used for discrete incontinuous answers, typically called classes).</p>
+<p>Next, he began with regression.</p>
 <h1 id="regression">regression:<a hidden class="anchor" aria-hidden="true" href="#regression">#</a></h1>
 <p>can be linear, logistic or more idk yet.</p>
 <h2 id="linear-regression"><strong>linear regression:</strong><a hidden class="anchor" aria-hidden="true" href="#linear-regression">#</a></h2>
@@ -216,7 +216,7 @@ f_{w,b}(x^{(i)}) = wx^{(i)} + b \tag{1}
 <p><strong>a:</strong> by providing a value describing the inaccuracy of this fitting, then gradually reducing this value till it is as low as possible. the value above is termed a cost function as it describes the cost of using the equation (a.k.a m.l model) to predict the output instead of getting the real life answer of interest.</p>
 </blockquote>
 <!-- raw HTML omitted -->
-<p>it is given by:</p>
+<p>It is given by:</p>
 
   
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></munderover><mo stretchy="false">(</mo><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>−</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(2)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2\tag{2}</annotation></semantics></math></span>
@@ -228,7 +228,7 @@ f_{w,b}(x^{(i)}) = wx^{(i)} + b \tag{1}
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(J(w,b))</annotation></semantics></math></span>
  will be 0.</p>
 </blockquote>
-<p>to develop a good linear regression model, the software picks a model equation, say, 
+<p>To develop a good linear regression model, the software picks a model equation, say, 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>=</mo><mn>2</mn><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo>+</mo><mn>7</mn></mrow><annotation encoding="application/x-tex">f_{w,b}(x^{(i)}) = 2x^{(i)} + 7</annotation></semantics></math></span>
  , then inputs the variable for each item in the dataset for 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">x^{(i)}</annotation></semantics></math></span>
