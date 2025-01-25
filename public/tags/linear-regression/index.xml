@@ -6,17 +6,54 @@
     <description>Recent content in Linear Regression on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jan 2025 16:19:21 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2025 17:32:53 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/linear-regression/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multifeature Linear Regression</title>
+      <link>http://localhost:1313/blog/multifeature-linear-regression/</link>
+      <pubDate>Sat, 25 Jan 2025 17:32:53 -0500</pubDate>
+      <guid>http://localhost:1313/blog/multifeature-linear-regression/</guid>
+      <description>&lt;h2 id=&#34;the-math&#34;&gt;&lt;strong&gt;the math:&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Logically same as univariate &lt;a href=&#34;https://soajagbe.xyz/blog/week2-2025/&#34;&gt;here&lt;/a&gt;,  just instead of single 
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;w&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ and 
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;x&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ there are multiple. It isalso more efficient to express all weights and features as vectors  
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\vec{w}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ and 
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\vec{x}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+. This way their dot product (
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\vec{w}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ 
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo&gt;⋅&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\cdot&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ 
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\vec{x}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+)is efficiently handled.&lt;/p&gt;
+&lt;p&gt;thus the equation becomes:&lt;/p&gt;
+
+  
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34; display=&#34;block&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mo&gt;⋅&lt;/mo&gt;&lt;msup&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;
+f_{\vec{w},b}(\vec{x}^{(i)}) = \vec w\cdot \vec{x}^{(i)} + b
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+&lt;p&gt;And the cost function 
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;J&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;msubsup&gt;&lt;mo&gt;∑&lt;/mo&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/msubsup&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mrow&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;msup&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+  would be changed to:&lt;/p&gt;
+
+  
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34; display=&#34;block&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;J&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mrow&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;munderover&gt;&lt;mo&gt;∑&lt;/mo&gt;&lt;mrow&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/mrow&gt;&lt;mrow&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;/munderover&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mo separator=&#34;true&#34;&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/mrow&gt;&lt;/msub&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;msup&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;
+J(\vec{w},b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})^2
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+&lt;p&gt;For gradient descent and the derivatives:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>linear regression and gradient descent</title>
       <link>http://localhost:1313/blog/week2-2025/</link>
       <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
       <guid>http://localhost:1313/blog/week2-2025/</guid>
-      <description>&lt;p&gt;this is a short summary of the first week of the &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;machine learning course&lt;/a&gt; by andrew ng.&lt;/p&gt;
-&lt;p&gt;first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.&lt;/p&gt;
+      <description>&lt;p&gt;This is a short summary of the first week of the &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;machine learning course&lt;/a&gt; by Andrew Ng.&lt;/p&gt;
+&lt;p&gt;First thing he covered was the difference between supervised and unsupervised learning, but I currently care about the former.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;supervised ml:&lt;/strong&gt;
-giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &amp;ldquo;learn how to get me the answers I care about given this dataset&amp;rdquo;.&lt;/p&gt;</description>
+Giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &amp;ldquo;learn how to get me the answers I care about given this dataset&amp;rdquo;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

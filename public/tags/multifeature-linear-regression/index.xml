@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Katex on soajagbe</title>
-    <link>http://localhost:1313/tags/katex/</link>
-    <description>Recent content in Katex on soajagbe</description>
+    <title>Multifeature Linear Regression on soajagbe</title>
+    <link>http://localhost:1313/tags/multifeature-linear-regression/</link>
+    <description>Recent content in Multifeature Linear Regression on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 25 Jan 2025 17:32:53 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/katex/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/multifeature-linear-regression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Multifeature Linear Regression</title>
       <link>http://localhost:1313/blog/multifeature-linear-regression/</link>
@@ -44,16 +44,6 @@ f_{\vec{w},b}(\vec{x}^{(i)}) = \vec w\cdot \vec{x}^{(i)} + b
 J(\vec{w},b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})^2
 &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
 &lt;p&gt;For gradient descent and the derivatives:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>linear regression and gradient descent</title>
-      <link>http://localhost:1313/blog/week2-2025/</link>
-      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
-      <guid>http://localhost:1313/blog/week2-2025/</guid>
-      <description>&lt;p&gt;This is a short summary of the first week of the &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;machine learning course&lt;/a&gt; by Andrew Ng.&lt;/p&gt;
-&lt;p&gt;First thing he covered was the difference between supervised and unsupervised learning, but I currently care about the former.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;supervised ml:&lt;/strong&gt;
-Giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, &amp;ldquo;learn how to get me the answers I care about given this dataset&amp;rdquo;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

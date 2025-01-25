@@ -145,13 +145,44 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Multifeature Linear Regression
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>the math: Logically same as univariate here, just instead of single ww and xx there are multiple. It isalso more efficient to express all weights and features as vectors w⃗\vec{w} and x⃗\vec{x} . This way their dot product ( w⃗\vec{w} ⋅\cdot x⃗\vec{x} )is efficiently handled.
+thus the equation becomes:
+fw⃗,b(x⃗(i))=w⃗⋅x⃗(i)&#43;b f_{\vec{w},b}(\vec{x}^{(i)}) = \vec w\cdot \vec{x}^{(i)} &#43; b And the cost function J(w,b)=12m∑i=0m−1(fw,b(x(i))−y(i))2J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2 would be changed to:
+J(w⃗,b)=12m∑i=0m−1(fw⃗,b(x⃗(i))−y(i))2 J(\vec{w},b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})^2 For gradient descent and the derivatives:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-25 17:32:53 -0500 EST'>January 25, 2025</span>&nbsp;·&nbsp;6 min</footer>
+  <a class="entry-link" aria-label="post link to Multifeature Linear Regression" href="http://localhost:1313/blog/multifeature-linear-regression/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Numpy and Tensors
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>this is a summary of my understanding of the optional lab on covered numpy, arrays, vectors and matrices.
+because we will be working with huge sets of data and we’ll be manipulating weights, properties and biases repeatedly, we need to do these operations efficiently. Thus, the numpy package can help as it has vectors and matrix properties, which are faster and less memory intensive compared to hardcoded calculations.
+to create both matrices and vectors the np.array syntax is typically used as such:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-01-25 17:30:00 -0500 EST'>January 25, 2025</span>&nbsp;·&nbsp;3 min</footer>
+  <a class="entry-link" aria-label="post link to Numpy and Tensors" href="http://localhost:1313/blog/numpy-and-tensors/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">linear regression and gradient descent
     </h2>
   </header>
   <div class="entry-content">
-    <p>this is a short summary of the first week of the machine learning course by andrew ng.
-first thing he covered was the difference between supervised and unsupervised learning, but i currently care about the former.
-supervised ml: giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, “learn how to get me the answers I care about given this dataset”.
+    <p>This is a short summary of the first week of the machine learning course by Andrew Ng.
+First thing he covered was the difference between supervised and unsupervised learning, but I currently care about the former.
+supervised ml: Giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, “learn how to get me the answers I care about given this dataset”.
 ...</p>
   </div>
   <footer class="entry-footer"><span title='2025-01-20 16:19:21 -0500 EST'>January 20, 2025</span>&nbsp;·&nbsp;6 min</footer>

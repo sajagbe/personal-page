@@ -21,6 +21,7 @@ menu:
 params:
   math:  true
   ShowReadingTime: true
+  Showtoc: true
   profileMode:
     enabled: true
     title: "hi. i'm stephen." # optional default will be site title
@@ -57,6 +58,8 @@ markup:
           inline:
           - - \(
             - \)
+          - - $
+            - $
         enable: true
 
 context:

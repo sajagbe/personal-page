@@ -6,13 +6,62 @@
     <description>Recent content in Tags on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jan 2025 16:19:21 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jan 2025 17:32:53 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Andrew Ng</title>
       <link>http://localhost:1313/tags/andrew-ng/</link>
-      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
+      <pubDate>Sat, 25 Jan 2025 17:32:53 -0500</pubDate>
       <guid>http://localhost:1313/tags/andrew-ng/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Katex</title>
+      <link>http://localhost:1313/tags/katex/</link>
+      <pubDate>Sat, 25 Jan 2025 17:32:53 -0500</pubDate>
+      <guid>http://localhost:1313/tags/katex/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linear Regression</title>
+      <link>http://localhost:1313/tags/linear-regression/</link>
+      <pubDate>Sat, 25 Jan 2025 17:32:53 -0500</pubDate>
+      <guid>http://localhost:1313/tags/linear-regression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>http://localhost:1313/tags/machine-learning/</link>
+      <pubDate>Sat, 25 Jan 2025 17:32:53 -0500</pubDate>
+      <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Multifeature Linear Regression</title>
+      <link>http://localhost:1313/tags/multifeature-linear-regression/</link>
+      <pubDate>Sat, 25 Jan 2025 17:32:53 -0500</pubDate>
+      <guid>http://localhost:1313/tags/multifeature-linear-regression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hamming</title>
+      <link>http://localhost:1313/tags/hamming/</link>
+      <pubDate>Thu, 23 Jan 2025 19:20:36 -0500</pubDate>
+      <guid>http://localhost:1313/tags/hamming/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Research</title>
+      <link>http://localhost:1313/tags/research/</link>
+      <pubDate>Thu, 23 Jan 2025 19:20:36 -0500</pubDate>
+      <guid>http://localhost:1313/tags/research/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Work</title>
+      <link>http://localhost:1313/tags/work/</link>
+      <pubDate>Thu, 23 Jan 2025 19:20:36 -0500</pubDate>
+      <guid>http://localhost:1313/tags/work/</guid>
       <description></description>
     </item>
     <item>
@@ -20,27 +69,6 @@
       <link>http://localhost:1313/tags/gradient-descent/</link>
       <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
       <guid>http://localhost:1313/tags/gradient-descent/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Katex</title>
-      <link>http://localhost:1313/tags/katex/</link>
-      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
-      <guid>http://localhost:1313/tags/katex/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linear Regression</title>
-      <link>http://localhost:1313/tags/linear-regression/</link>
-      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
-      <guid>http://localhost:1313/tags/linear-regression/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Machine Learning</title>
-      <link>http://localhost:1313/tags/machine-learning/</link>
-      <pubDate>Mon, 20 Jan 2025 16:19:21 -0500</pubDate>
-      <guid>http://localhost:1313/tags/machine-learning/</guid>
       <description></description>
     </item>
     <item>

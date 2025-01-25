@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>Multifeature Linear Regression | soajagbe</title>
+<meta name="keywords" content="machine learning, andrew ng, linear regression, multifeature linear regression, katex">
+<meta name="description" content="the math:
+Logically same as univariate here,  just instead of single 
+  ww
+ and 
+  xx
+ there are multiple. It isalso more efficient to express all weights and features as vectors  
+  w⃗\vec{w}
+ and 
+  x⃗\vec{x}
+. This way their dot product (
+  w⃗\vec{w}
+ 
+  ⋅\cdot
+ 
+  x⃗\vec{x}
+)is efficiently handled.
+thus the equation becomes:
+
+  
+  fw⃗,b(x⃗(i))=w⃗⋅x⃗(i)&#43;b
+f_{\vec{w},b}(\vec{x}^{(i)}) = \vec w\cdot \vec{x}^{(i)} &#43; b
+
+And the cost function 
+  J(w,b)=12m∑i=0m−1(fw,b(x(i))−y(i))2J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2
+  would be changed to:
+
+  
+  J(w⃗,b)=12m∑i=0m−1(fw⃗,b(x⃗(i))−y(i))2
+J(\vec{w},b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})^2
+
+For gradient descent and the derivatives:">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/blog/multifeature-linear-regression/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/multifeature-linear-regression/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      delimiters: [
+        {left: '\\[', right: '\\]', display: true},   
+        {left: '$$', right: '$$', display: true},     
+        {left: '\\(', right: '\\)', display: false},  
+      ],
+      throwOnError : false
+    });
+  });
+</script>
+    
+    
+    
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="soajagbe (Alt + H)">soajagbe</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/blog/" title="blog">
+                    <span>blog</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="projects">
+                    <span>projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/bio/" title="bio">
+                    <span>bio</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Multifeature Linear Regression
+    </h1>
+    <div class="post-meta"><span title='2025-01-25 17:32:53 -0500 EST'>January 25, 2025</span>&nbsp;·&nbsp;6 min
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#the-math" aria-label="the math:">the math:</a></li>
+                <li>
+                    <a href="#the-syntax" aria-label="the syntax:">the syntax:</a></li>
+                <li>
+                    <a href="#the-code" aria-label="the code:">the code:</a><ul>
+                        
+                <li>
+                    <a href="#aside" aria-label="Aside:">Aside:</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="the-math"><strong>the math:</strong><a hidden class="anchor" aria-hidden="true" href="#the-math">#</a></h2>
+<p>Logically same as univariate <a href="https://soajagbe.xyz/blog/week2-2025/">here</a>,  just instead of single 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
+ and 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span>
+ there are multiple. It isalso more efficient to express all weights and features as vectors  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>w</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{w}</annotation></semantics></math></span>
+ and 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>x</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{x}</annotation></semantics></math></span>
+. This way their dot product (
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>w</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{w}</annotation></semantics></math></span>
+ 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>⋅</mo></mrow><annotation encoding="application/x-tex">\cdot</annotation></semantics></math></span>
+ 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>x</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{x}</annotation></semantics></math></span>
+)is efficiently handled.</p>
+<p>thus the equation becomes:</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>f</mi><mrow><mover accent="true"><mi>w</mi><mo>⃗</mo></mover><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mover accent="true"><mi>x</mi><mo>⃗</mo></mover><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>=</mo><mover accent="true"><mi>w</mi><mo>⃗</mo></mover><mo>⋅</mo><msup><mover accent="true"><mi>x</mi><mo>⃗</mo></mover><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">
+f_{\vec{w},b}(\vec{x}^{(i)}) = \vec w\cdot \vec{x}^{(i)} + b
+</annotation></semantics></math></span>
+<p>And the cost function 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><msubsup><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></msubsup><mo stretchy="false">(</mo><msub><mi>f</mi><mrow><mi>w</mi><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mi>x</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>−</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2</annotation></semantics></math></span>
+  would be changed to:</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>J</mi><mo stretchy="false">(</mo><mover accent="true"><mi>w</mi><mo>⃗</mo></mover><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo><mo>=</mo><mfrac><mn>1</mn><mrow><mn>2</mn><mi>m</mi></mrow></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></munderover><mo stretchy="false">(</mo><msub><mi>f</mi><mrow><mover accent="true"><mi>w</mi><mo>⃗</mo></mover><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mover accent="true"><mi>x</mi><mo>⃗</mo></mover><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>−</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><msup><mo stretchy="false">)</mo><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">
+J(\vec{w},b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})^2
+</annotation></semantics></math></span>
+<p>For gradient descent and the derivatives:</p>
+<ol>
+<li>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mi>w</mi><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><mi>w</mi></mrow></mfrac></mrow><annotation encoding="application/x-tex">\frac{\partial J(w,b)}{\partial w}</annotation></semantics></math></span>
+, which was 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mfrac><mn>1</mn><mi>m</mi></mfrac><mrow><mo fence="true">[</mo><msub><mi>f</mi><mi>x</mi></msub><mo>−</mo><mi>y</mi><mo fence="true">]</mo></mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">\frac{1}{m}\left[f_x-y\right]x</annotation></semantics></math></span>
+, will now be done for each 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>w</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">w_n</annotation></semantics></math></span>
+ to change each dimension of 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>w</mi><mo>⃗</mo></mover></mrow><annotation encoding="application/x-tex">\vec{w}</annotation></semantics></math></span>
+, thus for the 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span>
+th feature and weight it’ll be written:</li>
+</ol>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mover accent="true"><mi>w</mi><mo>⃗</mo></mover><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><msub><mi>w</mi><mi>n</mi></msub></mrow></mfrac><mo>=</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></munderover><mrow><mo fence="true">[</mo><msub><mi>f</mi><mrow><mover accent="true"><mi>w</mi><mo>⃗</mo></mover><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mover accent="true"><mi>x</mi><mo>⃗</mo></mover><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>−</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo fence="true">]</mo></mrow><msubsup><mi>x</mi><mi>n</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">
+\frac{\partial J(\vec{w},b)}{\partial w_n} = \frac{1}{m}\sum\limits_{i = 0}^{m-1} \left[f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)}\right]x_n^{(i)}
+</annotation></semantics></math></span>
+<p>and:</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msub><mi>w</mi><mi>n</mi></msub><mo>=</mo><msub><mi>w</mi><mi>n</mi></msub><mo>−</mo><mi>α</mi><mo stretchy="false">(</mo><mfrac><mrow><mi mathvariant="normal">∂</mi><mi>J</mi><mo stretchy="false">(</mo><mover accent="true"><mi>w</mi><mo>⃗</mo></mover><mo separator="true">,</mo><mi>b</mi><mo stretchy="false">)</mo></mrow><mrow><mi mathvariant="normal">∂</mi><msub><mi>w</mi><mi>n</mi></msub></mrow></mfrac><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">
+w_n = w_n - \alpha(\frac{\partial J(\vec{w},b)}{\partial w_n})
+</annotation></semantics></math></span>
+<ol>
+<li>for 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
+, it is:</li>
+</ol>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>b</mi><mo>=</mo><mi>b</mi><mo>−</mo><mi>α</mi><mo>=</mo><mfrac><mn>1</mn><mi>m</mi></mfrac><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>0</mn></mrow><mrow><mi>m</mi><mo>−</mo><mn>1</mn></mrow></munderover><mrow><mo fence="true">[</mo><msub><mi>f</mi><mrow><mover accent="true"><mi>w</mi><mo>⃗</mo></mover><mo separator="true">,</mo><mi>b</mi></mrow></msub><mo stretchy="false">(</mo><msup><mover accent="true"><mi>x</mi><mo>⃗</mo></mover><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo><mo>−</mo><msup><mi>y</mi><mrow><mo stretchy="false">(</mo><mi>i</mi><mo stretchy="false">)</mo></mrow></msup><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">
+b = b - \alpha  = \frac{1}{m}\sum\limits_{i = 0}^{m-1} \left[f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)}\right]
+</annotation></semantics></math></span>
+<p>Alternatively you can minimize the cost function with the <strong>Normal equation,</strong> a non-iterative method. Apparently this only works for linear regression and isnt as efficient when features are &gt;10k.</p>
+<h2 id="the-syntax"><strong>the syntax:</strong><a hidden class="anchor" aria-hidden="true" href="#the-syntax">#</a></h2>
+<p>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mover accent="true"><mi>𝐱</mi><mo>⃗</mo></mover><mrow><mo stretchy="false">(</mo><mi>𝑖</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\vec𝐱^{(𝑖)}</annotation></semantics></math></span>
+ is a vector containing example 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span>
+ where 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>x</mi><mn>0</mn><mrow><mo stretchy="false">(</mo><mi>𝑖</mi><mo stretchy="false">)</mo></mrow></msubsup><mo separator="true">,</mo><msubsup><mi>x</mi><mi>n</mi><mrow><mo stretchy="false">(</mo><mi>𝑖</mi><mo stretchy="false">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">x_0^{(𝑖)}, x_n^{(𝑖)}</annotation></semantics></math></span>
+ are the first and nth features of example 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span>
+. When combine into a full set of vectors, you have the training matrix 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="bold">X</mi></mrow><annotation encoding="application/x-tex">\mathbf{X}</annotation></semantics></math></span>
+, containing vectors  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mover accent="true"><mi>𝐱</mi><mo>⃗</mo></mover><mrow><mo stretchy="false">(</mo><mi>𝑖</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\vec𝐱^{(𝑖)}</annotation></semantics></math></span>
+ to 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mover accent="true"><mi>𝐱</mi><mo>⃗</mo></mover><mrow><mo stretchy="false">(</mo><mi>m</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\vec𝐱^{(m)}</annotation></semantics></math></span>
+.</p>
+<p>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span>
+ and 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span>
+ are intentionally used to show the number of matrix rows (aka examples represented as vectors) and number of matrix columns (aka features represented as example vector length).</p>
+<p>so for example, this matrix will represent a training dataset.</p>
+
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi mathvariant="bold">X</mi><mo>=</mo><mrow><mo fence="true">(</mo><mtable rowspacing="0.16em" columnalign="center center center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msubsup><mi>x</mi><mn>0</mn><mrow><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></msubsup></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msubsup><mi>x</mi><mn>1</mn><mrow><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></msubsup></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo lspace="0em" rspace="0em">⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msubsup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mrow><mo stretchy="false">(</mo><mn>0</mn><mo stretchy="false">)</mo></mrow></msubsup></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msubsup><mi>x</mi><mn>0</mn><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msubsup><mi>x</mi><mn>1</mn><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo lspace="0em" rspace="0em">⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msubsup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mrow><mo stretchy="false">(</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mi><mi mathvariant="normal">⋮</mi><mpadded height="0em" voffset="0em"><mspace mathbackground="black" width="0em" height="1.5em"></mspace></mpadded></mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mi><mi mathvariant="normal">⋮</mi><mpadded height="0em" voffset="0em"><mspace mathbackground="black" width="0em" height="1.5em"></mspace></mpadded></mi></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo lspace="0em" rspace="0em">⋱</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mi><mi mathvariant="normal">⋮</mi><mpadded height="0em" voffset="0em"><mspace mathbackground="black" width="0em" height="1.5em"></mspace></mpadded></mi></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><msubsup><mi>x</mi><mn>0</mn><mrow><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msubsup><mi>x</mi><mn>1</mn><mrow><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mo lspace="0em" rspace="0em">⋯</mo></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><msubsup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow><mrow><mo stretchy="false">(</mo><mi>m</mi><mo>−</mo><mn>1</mn><mo stretchy="false">)</mo></mrow></msubsup></mstyle></mtd></mtr></mtable><mo fence="true">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+\mathbf{X} =
+\begin{pmatrix}
+x_0^{(0)} &amp; x_1^{(0)} &amp; \cdots &amp; x_{n-1}^{(0)} \\
+x_0^{(1)} &amp; x_1^{(1)} &amp; \cdots &amp; x_{n-1}^{(1)} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+x_0^{(m-1)} &amp; x_1^{(m-1)} &amp; \cdots &amp; x_{n-1}^{(m-1)}
+\end{pmatrix}
+</annotation></semantics></math></span>
+<p>example outputs / targets and parameters will also berepresented as vectors of length 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span>
+ and 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span>
+  respectively because outputs are for each vector / row 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mover accent="true"><mi>𝐱</mi><mo>⃗</mo></mover><mrow><mo stretchy="false">(</mo><mi>𝑖</mi><mo stretchy="false">)</mo></mrow></msup></mrow><annotation encoding="application/x-tex">\vec𝐱^{(𝑖)}</annotation></semantics></math></span>
+ and parameters are for each feature 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msubsup><mi>x</mi><mi>n</mi><mrow><mo stretchy="false">(</mo><mi>𝑖</mi><mo stretchy="false">)</mo></mrow></msubsup></mrow><annotation encoding="application/x-tex">x_n^{(𝑖)}</annotation></semantics></math></span>
+.</p>
+<!-- raw HTML omitted -->
+<p>i expected each row vector to have their own parameters but  I thought it through and saw that if the same model is to approximately describe the whole dataset, one set of parameters need to be used.</p>
+<!-- raw HTML omitted -->
+<p>
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
+ the bias will be a scalar. so basic. 😂</p>
+<h2 id="the-code"><strong>the code:</strong><a hidden class="anchor" aria-hidden="true" href="#the-code">#</a></h2>
+<p>say you have optimal weights and biases, cost function at this state can be calculated by:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_cost</span>(X, y, w, b): <span style="color:#75715e">#initialize cost function </span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    compute cost
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      X (ndarray (m,n)): Data set, matrix with m examples / rows and n features / columns
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      y (ndarray (m,)) : vector containing outputs / target values for each row
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      w (ndarray (n,)) : vector containing weights per parameter
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      b (scalar)       : model bias, scalar
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      cost (scalar): cost
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    m <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>shape[<span style="color:#ae81ff">0</span>] <span style="color:#75715e">#get the number of rows / examples</span>
+</span></span><span style="display:flex;"><span>    cost <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span> <span style="color:#75715e">#initialize cost function variable</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#To calculate the cost per row / example, for each row, calculate the prediction and sum them all.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(m):                <span style="color:#75715e">#to do this loop through the matrix rows:                       </span>
+</span></span><span style="display:flex;"><span>       f_wb_i <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>dot(X[i], w) <span style="color:#f92672">+</span> b   <span style="color:#75715e">#get a prediction per row: take the row vector X[i] and </span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#75715e">#get the dot product with equally long weight vector w, then, </span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#75715e">#add this to bias b.  </span>
+</span></span><span style="display:flex;"><span>     cost <span style="color:#f92672">=</span> cost <span style="color:#f92672">+</span> (f_wb_i <span style="color:#f92672">-</span> y[i])<span style="color:#f92672">**</span><span style="color:#ae81ff">2</span> <span style="color:#75715e">#take the prediction(f_wb_i),</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#75715e">#subtract the target y[i]from it,</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#75715e">#square the difference.  </span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#75715e">#add to cost variable.                                       </span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#After looping diving cost by 2x m</span>
+</span></span><span style="display:flex;"><span>    cost <span style="color:#f92672">=</span> cost <span style="color:#f92672">/</span> (<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> m)                       
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> cost
+</span></span></code></pre></div><p>For multiple variables, you need to first compute a gradient for 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span>
+ and 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>b</mi></mrow><annotation encoding="application/x-tex">b</annotation></semantics></math></span>
+ before actually applying it in the gradient descent algorith, viz:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">compute_gradient</span>(X, y, w, b): 
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Computes the gradient for linear regression 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      X (ndarray (m,n)): Data, m examples with n features
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      y (ndarray (m,)) : target values
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      w (ndarray (n,)) : model parameters  
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      b (scalar)       : model parameter
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      dj_dw (ndarray (n,)): The gradient of the cost w.r.t. the parameters w. 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      dj_db (scalar):       The gradient of the cost w.r.t. the parameter b. 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    m,n <span style="color:#f92672">=</span> X<span style="color:#f92672">.</span>shape           <span style="color:#75715e">#(number of examples, number of features)</span>
+</span></span><span style="display:flex;"><span>    dj_dw <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros((n,))  <span style="color:#75715e"># vector of length n,containing 0 for the gradient of each feature weight</span>
+</span></span><span style="display:flex;"><span>    dj_db <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#To get the overall derivatives for weights and biases for this dataset:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(m):                    <span style="color:#75715e">#for each row do the following:         </span>
+</span></span><span style="display:flex;"><span>        err <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>dot(X[i], w) <span style="color:#f92672">+</span> b) <span style="color:#f92672">-</span> y[i]   <span style="color:#75715e">#get prediction cost for row / example X[i]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> j <span style="color:#f92672">in</span> range(n):                   <span style="color:#75715e">#to get weight derivative, for each feature </span>
+</span></span><span style="display:flex;"><span>                                             <span style="color:#75715e"># get the value X[i, j] and </span>
+</span></span><span style="display:flex;"><span>            dj_dw[j] <span style="color:#f92672">=</span> dj_dw[j] <span style="color:#f92672">+</span> err <span style="color:#f92672">*</span> X[i, j] <span style="color:#75715e">#multiply by the prediction cost for the row / example</span>
+</span></span><span style="display:flex;"><span>                                             <span style="color:#75715e">#then sum them up</span>
+</span></span><span style="display:flex;"><span>        dj_db <span style="color:#f92672">=</span> dj_db <span style="color:#f92672">+</span> err        <span style="color:#75715e">#to get bias derivative, add up all cost errors for each row.                </span>
+</span></span><span style="display:flex;"><span>    dj_dw <span style="color:#f92672">=</span> dj_dw <span style="color:#f92672">/</span> m           <span style="color:#75715e">#normalize with no. of rows                     </span>
+</span></span><span style="display:flex;"><span>    dj_db <span style="color:#f92672">=</span> dj_db <span style="color:#f92672">/</span> m           <span style="color:#75715e">#normalize with no. of rows                     </span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> dj_db, dj_dw
+</span></span></code></pre></div><h3 id="aside">Aside:<a hidden class="anchor" aria-hidden="true" href="#aside">#</a></h3>
+<p>They implemented the algorithm as such:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">gradient_descent</span>(X, y, w_in, b_in, cost_function, gradient_function, alpha, num_iters): 
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Performs batch gradient descent to learn w and b. Updates w and b by taking 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    num_iters gradient steps with learning rate alpha
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      X (ndarray (m,n))   : Data, m examples with n features
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      y (ndarray (m,))    : target values
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      w_in (ndarray (n,)) : initial model parameters  
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      b_in (scalar)       : initial model parameter
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      cost_function       : function to compute cost
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      gradient_function   : function to compute the gradient
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      alpha (float)       : Learning rate
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      num_iters (int)     : number of iterations to run gradient descent
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      w (ndarray (n,)) : Updated values of parameters 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      b (scalar)       : Updated value of parameter 
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># An array to store cost J and w&#39;s at each iteration primarily for graphing later</span>
+</span></span><span style="display:flex;"><span>    J_history <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span>    w <span style="color:#f92672">=</span> copy<span style="color:#f92672">.</span>deepcopy(w_in)  <span style="color:#75715e">#avoid modifying global w within function</span>
+</span></span><span style="display:flex;"><span>    b <span style="color:#f92672">=</span> b_in
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(num_iters):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Calculate the gradient and update the parameters</span>
+</span></span><span style="display:flex;"><span>        dj_db,dj_dw <span style="color:#f92672">=</span> gradient_function(X, y, w, b)   <span style="color:#75715e">##None</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Update Parameters using w, b, alpha and gradient</span>
+</span></span><span style="display:flex;"><span>        w <span style="color:#f92672">=</span> w <span style="color:#f92672">-</span> alpha <span style="color:#f92672">*</span> dj_dw               <span style="color:#75715e">##None</span>
+</span></span><span style="display:flex;"><span>        b <span style="color:#f92672">=</span> b <span style="color:#f92672">-</span> alpha <span style="color:#f92672">*</span> dj_db               <span style="color:#75715e">##None</span>
+</span></span><span style="display:flex;"><span>      
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Save cost J at each iteration</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">100000</span>:      <span style="color:#75715e"># prevent resource exhaustion </span>
+</span></span><span style="display:flex;"><span>            J_history<span style="color:#f92672">.</span>append( cost_function(X, y, w, b))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Print cost every at intervals 10 times or as many iterations if &lt; 10</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> i<span style="color:#f92672">%</span> math<span style="color:#f92672">.</span>ceil(num_iters <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>:
+</span></span><span style="display:flex;"><span>            print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;Iteration </span><span style="color:#e6db74">{</span>i<span style="color:#e6db74">:</span><span style="color:#e6db74">4d</span><span style="color:#e6db74">}</span><span style="color:#e6db74">: Cost </span><span style="color:#e6db74">{</span>J_history[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#e6db74">:</span><span style="color:#e6db74">8.2f</span><span style="color:#e6db74">}</span><span style="color:#e6db74">   &#34;</span>)
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> w, b, J_history <span style="color:#75715e">#return final w,b and J history for graphing</span>
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># initialize parameters</span>
+</span></span><span style="display:flex;"><span>initial_w <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>zeros_like(w_init)
+</span></span><span style="display:flex;"><span>initial_b <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># some gradient descent settings</span>
+</span></span><span style="display:flex;"><span>iterations <span style="color:#f92672">=</span> <span style="color:#ae81ff">100000</span>
+</span></span><span style="display:flex;"><span>alpha <span style="color:#f92672">=</span> <span style="color:#ae81ff">5.0e-7</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># run gradient descent </span>
+</span></span><span style="display:flex;"><span>w_final, b_final, J_hist <span style="color:#f92672">=</span> gradient_descent(X_train, y_train, initial_w, initial_b,
+</span></span><span style="display:flex;"><span>                                                    compute_cost, compute_gradient, 
+</span></span><span style="display:flex;"><span>                                                    alpha, iterations)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;b,w found by gradient descent: </span><span style="color:#e6db74">{</span>b_final<span style="color:#e6db74">:</span><span style="color:#e6db74">0.2f</span><span style="color:#e6db74">}</span><span style="color:#e6db74">,</span><span style="color:#e6db74">{</span>w_final<span style="color:#e6db74">}</span><span style="color:#e6db74"> &#34;</span>)
+</span></span><span style="display:flex;"><span>m,_ <span style="color:#f92672">=</span> X_train<span style="color:#f92672">.</span>shape
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(m):
+</span></span><span style="display:flex;"><span>    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;prediction: </span><span style="color:#e6db74">{</span>np<span style="color:#f92672">.</span>dot(X_train[i], w_final) <span style="color:#f92672">+</span> b_final<span style="color:#e6db74">:</span><span style="color:#e6db74">0.2f</span><span style="color:#e6db74">}</span><span style="color:#e6db74">, target value: </span><span style="color:#e6db74">{</span>y_train[i]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><!-- raw HTML omitted -->
+<p><code>np.zeros_like(x)</code> , sick function. creates an array of zeros like that of <code>x</code>  - which could be a vector, scalar, etc.</p>
+<!-- raw HTML omitted -->
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/machine-learning/">Machine Learning</a></li>
+      <li><a href="http://localhost:1313/tags/andrew-ng/">Andrew Ng</a></li>
+      <li><a href="http://localhost:1313/tags/linear-regression/">Linear Regression</a></li>
+      <li><a href="http://localhost:1313/tags/multifeature-linear-regression/">Multifeature Linear Regression</a></li>
+      <li><a href="http://localhost:1313/tags/katex/">Katex</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">soajagbe</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
