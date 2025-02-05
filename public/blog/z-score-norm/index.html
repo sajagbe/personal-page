@@ -5,11 +5,38 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>Machine Learning | soajagbe</title>
-<meta name="keywords" content="">
-<meta name="description" content="">
+<title>Z Score Normalization | soajagbe</title>
+<meta name="keywords" content="machine learning, andrew ng, normalization">
+<meta name="description" content="z-score normalization:
+This is a way to make all features in the dataset have the same unit (the 
+  σ\sigma
+).
+
+  
+  Z=X−μσ
+Z = \frac{X - \mu}{\sigma}
+
+steps are:
+
+get mean of feature from all examples (
+  μ\mu
+)
+get deviation from mean for each item
+square values from (2) and sum them all
+Take average of (3), i.e. (3) / m where m is no. of examples
+Get 
+  (4)\sqrt{(4)}
+ (
+  σ\sigma
+)
+
+When you do this for each sample feature in a feature set, the range will hence be from &#43;b
+  σ\sigma
+ (gotten from the z norm for number highest from mean) to -b
+  σ\sigma
+ (gotten from the z norm for number lowest from mean) with 0 in the middle (i.e. the mean), where b is a scalar. so cool to understand why they are called &ldquo;scalar&rdquo;, because they literally scale what they multiply.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/tags/machine-learning/">
+<link rel="canonical" href="http://localhost:1313/blog/z-score-norm/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +45,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/tags/machine-learning/index.xml">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/tags/machine-learning/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/blog/z-score-norm/">
 <noscript>
     <style>
         #theme-toggle,
@@ -78,7 +104,7 @@
     
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -136,87 +162,80 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
-<header class="page-header">
-  <h1>
-    Machine Learning
-  </h1>
-</header>
+<main class="main">
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Z Score Normalization
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>z-score normalization: This is a way to make all features in the dataset have the same unit (the σ\sigma ).
-Z=X−μσ Z = \frac{X - \mu}{\sigma} steps are:
-get mean of feature from all examples ( μ\mu ) get deviation from mean for each item square values from (2) and sum them all Take average of (3), i.e. (3) / m where m is no. of examples Get (4)\sqrt{(4)} ( σ\sigma ) When you do this for each sample feature in a feature set, the range will hence be from &#43;b σ\sigma (gotten from the z norm for number highest from mean) to -b σ\sigma (gotten from the z norm for number lowest from mean) with 0 in the middle (i.e. the mean), where b is a scalar. so cool to understand why they are called “scalar”, because they literally scale what they multiply.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-02-05 10:06:06 -0500 EST'>February 5, 2025</span>&nbsp;·&nbsp;2 min</footer>
-  <a class="entry-link" aria-label="post link to Z Score Normalization" href="http://localhost:1313/blog/z-score-norm/"></a>
-</article>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Z Score Normalization
+    </h1>
+    <div class="post-meta"><span title='2025-02-05 10:06:06 -0500 EST'>February 5, 2025</span>&nbsp;·&nbsp;2 min
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Multifeature Linear Regression
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>the math: Logically same as univariate here, just instead of single ww and xx there are multiple. It isalso more efficient to express all weights and features as vectors w⃗\vec{w} and x⃗\vec{x} . This way their dot product ( w⃗\vec{w} ⋅\cdot x⃗\vec{x} )is efficiently handled.
-thus the equation becomes:
-fw⃗,b(x⃗(i))=w⃗⋅x⃗(i)&#43;b f_{\vec{w},b}(\vec{x}^{(i)}) = \vec w\cdot \vec{x}^{(i)} &#43; b And the cost function J(w,b)=12m∑i=0m−1(fw,b(x(i))−y(i))2J(w,b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{w,b}(x^{(i)}) - y^{(i)})^2 would be changed to:
-J(w⃗,b)=12m∑i=0m−1(fw⃗,b(x⃗(i))−y(i))2 J(\vec{w},b) = \frac{1}{2m} \sum\limits_{i = 0}^{m-1} (f_{\vec{w},b}(\vec{x}^{(i)}) - y^{(i)})^2 For gradient descent and the derivatives:
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-25 17:32:53 -0500 EST'>January 25, 2025</span>&nbsp;·&nbsp;6 min</footer>
-  <a class="entry-link" aria-label="post link to Multifeature Linear Regression" href="http://localhost:1313/blog/multifeature-linear-regression/"></a>
-</article>
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Numpy and Tensors
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>this is a summary of my understanding of the optional lab on covered numpy, arrays, vectors and matrices.
-because we will be working with huge sets of data and we’ll be manipulating weights, properties and biases repeatedly, we need to do these operations efficiently. Thus, the numpy package can help as it has vectors and matrix properties, which are faster and less memory intensive compared to hardcoded calculations.
-to create both matrices and vectors the np.array syntax is typically used as such:
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-25 17:30:00 -0500 EST'>January 25, 2025</span>&nbsp;·&nbsp;3 min</footer>
-  <a class="entry-link" aria-label="post link to Numpy and Tensors" href="http://localhost:1313/blog/numpy-and-tensors/"></a>
-</article>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#z-score-normalization" aria-label="z-score normalization:">z-score normalization:</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">linear regression and gradient descent
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>This is a short summary of the first week of the machine learning course by Andrew Ng.
-First thing he covered was the difference between supervised and unsupervised learning, but I currently care about the former.
-supervised ml: Giving the computer a data set with sample answers of interest and telling it “find the correlation between the dataset and the answers of interest” or more simply, “learn how to get me the answers I care about given this dataset”.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-01-20 16:19:21 -0500 EST'>January 20, 2025</span>&nbsp;·&nbsp;6 min</footer>
-  <a class="entry-link" aria-label="post link to linear regression and gradient descent" href="http://localhost:1313/blog/week2-2025/"></a>
-</article>
+  <div class="post-content"><h3 id="z-score-normalization">z-score normalization:<a hidden class="anchor" aria-hidden="true" href="#z-score-normalization">#</a></h3>
+<p>This is a way to make all features in the dataset have the same unit (the 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span>
+).</p>
 
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">ml start
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>i want to continue posting online regularly.
-hence this first post.
-i started learning ml with andrew ng’s ml specialization.
-notes: last week, i took a hpc course from uc boulder and took some notes. i am going to make a post about it. i learned qchem prints S0 -&gt; SX transition energies at SX optimized geometry, so this is technically not adiabatic excitation energy. at the back of my mind, i am going “why would they do that instead of SX energy at SX optimized geometry - S0 energy at S0 optimized geometry?”, which is indeed what i typically need when doing calculations. apparently, S2 energy at S2 energy - S0 energy at S2 minimum is called the vertical emission energy, while, the adiabatic excitation energy (AEE) is instead the S2 energy at the S2 minimum - S0 energy at the S0 geometry and i didn’t know the difference. i learned a trick to color the files and folders differently in the terminal - ls --color. added this as an ls alias in my .bashrc and i like the view. </p>
+  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>Z</mi><mo>=</mo><mfrac><mrow><mi>X</mi><mo>−</mo><mi>μ</mi></mrow><mi>σ</mi></mfrac></mrow><annotation encoding="application/x-tex">
+Z = \frac{X - \mu}{\sigma}
+</annotation></semantics></math></span>
+<p>steps are:</p>
+<ol>
+<li>get mean of feature from all examples (
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>μ</mi></mrow><annotation encoding="application/x-tex">\mu</annotation></semantics></math></span>
+)</li>
+<li>get deviation from mean for each item</li>
+<li>square values from (2) and sum them all</li>
+<li>Take average of (3), i.e. (3) / m where m is no. of examples</li>
+<li>Get 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mrow><mo stretchy="false">(</mo><mn>4</mn><mo stretchy="false">)</mo></mrow></msqrt></mrow><annotation encoding="application/x-tex">\sqrt{(4)}</annotation></semantics></math></span>
+ (
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span>
+)</li>
+</ol>
+<p>When you do this for each sample feature in a feature set, the range will hence be from +b
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span>
+ (gotten from the z norm for number highest from mean) to -b
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span>
+ (gotten from the z norm for number lowest from mean) with 0 in the middle (i.e. the mean), where b is a scalar. so cool to understand why they are called &ldquo;scalar&rdquo;, because they literally scale what they multiply.</p>
+<p>e.g. if a sample feature 2 has a value 2
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span>
+, it means it is 2 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span>
+ away from mean for that feature in that dataset.</p>
+<p>because the software does not truly care about the actual value of 
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>σ</mi></mrow><annotation encoding="application/x-tex">\sigma</annotation></semantics></math></span>
+, but just about the distance from the sigma that represents the value of the sample feature, all features will have the same unit and thus be comparable.</p>
+<p>this will make the gradient descent much faster because the algo. will be able to make much even changes to all weights at the same time since they are now on the same scale.</p>
+
+
   </div>
-  <footer class="entry-footer"><span title='2025-01-09 19:40:33 -0500 EST'>January 9, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to ml start" href="http://localhost:1313/blog/week1-2025/"></a>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/machine-learning/">Machine Learning</a></li>
+      <li><a href="http://localhost:1313/tags/andrew-ng/">Andrew Ng</a></li>
+      <li><a href="http://localhost:1313/tags/normalization/">Normalization</a></li>
+    </ul>
+  </footer>
 </article>
     </main>
     

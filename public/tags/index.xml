@@ -6,13 +6,27 @@
     <description>Recent content in Tags on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jan 2025 17:32:53 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2025 10:06:06 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Andrew Ng</title>
       <link>http://localhost:1313/tags/andrew-ng/</link>
-      <pubDate>Sat, 25 Jan 2025 17:32:53 -0500</pubDate>
+      <pubDate>Wed, 05 Feb 2025 10:06:06 -0500</pubDate>
       <guid>http://localhost:1313/tags/andrew-ng/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine Learning</title>
+      <link>http://localhost:1313/tags/machine-learning/</link>
+      <pubDate>Wed, 05 Feb 2025 10:06:06 -0500</pubDate>
+      <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Normalization</title>
+      <link>http://localhost:1313/tags/normalization/</link>
+      <pubDate>Wed, 05 Feb 2025 10:06:06 -0500</pubDate>
+      <guid>http://localhost:1313/tags/normalization/</guid>
       <description></description>
     </item>
     <item>
@@ -30,17 +44,24 @@
       <description></description>
     </item>
     <item>
-      <title>Machine Learning</title>
-      <link>http://localhost:1313/tags/machine-learning/</link>
-      <pubDate>Sat, 25 Jan 2025 17:32:53 -0500</pubDate>
-      <guid>http://localhost:1313/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Multifeature Linear Regression</title>
       <link>http://localhost:1313/tags/multifeature-linear-regression/</link>
       <pubDate>Sat, 25 Jan 2025 17:32:53 -0500</pubDate>
       <guid>http://localhost:1313/tags/multifeature-linear-regression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Numpy</title>
+      <link>http://localhost:1313/tags/numpy/</link>
+      <pubDate>Sat, 25 Jan 2025 17:30:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/numpy/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tensors</title>
+      <link>http://localhost:1313/tags/tensors/</link>
+      <pubDate>Sat, 25 Jan 2025 17:30:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/tensors/</guid>
       <description></description>
     </item>
     <item>

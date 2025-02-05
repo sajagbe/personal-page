@@ -145,6 +145,21 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Z Score Normalization
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>z-score normalization: This is a way to make all features in the dataset have the same unit (the σ\sigma ).
+Z=X−μσ Z = \frac{X - \mu}{\sigma} steps are:
+get mean of feature from all examples ( μ\mu ) get deviation from mean for each item square values from (2) and sum them all Take average of (3), i.e. (3) / m where m is no. of examples Get (4)\sqrt{(4)} ( σ\sigma ) When you do this for each sample feature in a feature set, the range will hence be from &#43;b σ\sigma (gotten from the z norm for number highest from mean) to -b σ\sigma (gotten from the z norm for number lowest from mean) with 0 in the middle (i.e. the mean), where b is a scalar. so cool to understand why they are called “scalar”, because they literally scale what they multiply.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-02-05 10:06:06 -0500 EST'>February 5, 2025</span>&nbsp;·&nbsp;2 min</footer>
+  <a class="entry-link" aria-label="post link to Z Score Normalization" href="http://localhost:1313/blog/z-score-norm/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Multifeature Linear Regression
     </h2>
   </header>

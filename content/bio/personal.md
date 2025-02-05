@@ -16,6 +16,7 @@ Currently, I do not take in as much media as I did prior to grad. school. Howeve
 - game of thrones
 - friends (worthy highlight - seasons 4-7, ross’ divorces and chandler’s comedic shine)
 - normal people
+- atypical (much thanks to the creators and writer of this.)
 
 #### music
 - ramin djawadi - light of the seven

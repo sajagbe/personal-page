@@ -6,7 +6,7 @@
     <description>Recent content on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jan 2025 17:32:53 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2025 10:06:06 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>personal</title>
@@ -24,6 +24,7 @@
 &lt;li&gt;game of thrones&lt;/li&gt;
 &lt;li&gt;friends (worthy highlight - seasons 4-7, ross’ divorces and chandler’s comedic shine)&lt;/li&gt;
 &lt;li&gt;normal people&lt;/li&gt;
+&lt;li&gt;atypical (much thanks to the creators and writer of this.)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h4 id=&#34;music&#34;&gt;music&lt;/h4&gt;
 &lt;ul&gt;
@@ -55,6 +56,40 @@ I was new to the acedemy and curious.
 By the second year, the chemistry and biochemistry began to make sense
 and I saw I had a connection with it.
 I also met friends I have till today and some objectively good professors.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Z Score Normalization</title>
+      <link>http://localhost:1313/blog/z-score-norm/</link>
+      <pubDate>Wed, 05 Feb 2025 10:06:06 -0500</pubDate>
+      <guid>http://localhost:1313/blog/z-score-norm/</guid>
+      <description>&lt;h3 id=&#34;z-score-normalization&#34;&gt;z-score normalization:&lt;/h3&gt;
+&lt;p&gt;This is a way to make all features in the dataset have the same unit (the 
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;σ&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\sigma&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+).&lt;/p&gt;
+
+  
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34; display=&#34;block&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;Z&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mrow&gt;&lt;mi&gt;X&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;μ&lt;/mi&gt;&lt;/mrow&gt;&lt;mi&gt;σ&lt;/mi&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;
+Z = \frac{X - \mu}{\sigma}
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+&lt;p&gt;steps are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;get mean of feature from all examples (
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;μ&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\mu&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+)&lt;/li&gt;
+&lt;li&gt;get deviation from mean for each item&lt;/li&gt;
+&lt;li&gt;square values from (2) and sum them all&lt;/li&gt;
+&lt;li&gt;Take average of (3), i.e. (3) / m where m is no. of examples&lt;/li&gt;
+&lt;li&gt;Get 
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msqrt&gt;&lt;mrow&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;/msqrt&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\sqrt{(4)}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ (
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;σ&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\sigma&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;When you do this for each sample feature in a feature set, the range will hence be from +b
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;σ&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\sigma&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ (gotten from the z norm for number highest from mean) to -b
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;σ&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\sigma&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ (gotten from the z norm for number lowest from mean) with 0 in the middle (i.e. the mean), where b is a scalar. so cool to understand why they are called &amp;ldquo;scalar&amp;rdquo;, because they literally scale what they multiply.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Multifeature Linear Regression</title>
