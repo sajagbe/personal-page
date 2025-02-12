@@ -54,7 +54,7 @@ $$
 
 but very quickly we see that this doesn’t include the conditional effects of if $y_i$ is 0 or 1, thus, we rewrite  each part as:
 
-$-y_i(log(f(x_i))$ and $((1-yi)-log (1-(f(x_i))))$ respectively, thus if y_i = 0, the first part goes to 0 and the other part is active and when y_i =1 the first part works and the second goes to 0. this is quite simple and elegant now that I think of it. a logical tit for tat. 
+$-y_i(log(f(x_i))$ and $((1-yi)-log (1-(f(x_i))))$ respectively, thus if $y_i$ = 0, the first part goes to 0 and the other part is active and when $y_i$ =1 the first part works and the second goes to 0. this is quite simple and elegant now that I think of it. a logical tit for tat. 
 
 thus the cost function $(J)$, becomes:
 
