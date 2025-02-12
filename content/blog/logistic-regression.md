@@ -32,7 +32,7 @@ and
 
 when target is 0, loss is $-log (1-(f(x_i)))$
 
-these give, [this](https://drive.google.com/drive/u/0/folders/1fiJxPxbXjObLS9NE3QJoT-8Vy9TRxv0r).
+these give, [this](https://drive.google.com/file/d/1vldoP2kRewWZq3pHvBLpyej67cIGE55m/view).
 
 
 
@@ -63,7 +63,7 @@ J(w,b)= \frac{1}{m} \sum_{i=1}^{m}
 [-y_i(log(f(x_i))+((1−y_i)-log(1−f(x_i)))]
 $$
 
-which we can observe graphically as [such](https://drive.google.com/drive/u/0/folders/1fiJxPxbXjObLS9NE3QJoT-8Vy9TRxv0r).
+which we can observe graphically as [such](https://drive.google.com/file/d/1VN0aR00WpdDfihWHqOl5Z0w2XbQHP40f/view).
 
 with this, the idea of minimizing the cost function is more intuitive since it is clearly a sum of all loss functions for that w,b state. 
 

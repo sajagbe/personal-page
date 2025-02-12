@@ -196,7 +196,7 @@ f(x)= \frac{1}{1+e^{-z}}
 <p>when target is 0, loss is 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><mi>l</mi><mi>o</mi><mi>g</mi><mo stretchy="false">(</mo><mn>1</mn><mo>−</mo><mo stretchy="false">(</mo><mi>f</mi><mo stretchy="false">(</mo><msub><mi>x</mi><mi>i</mi></msub><mo stretchy="false">)</mo><mo stretchy="false">)</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">-log (1-(f(x_i)))</annotation></semantics></math></span>
 </p>
-<p>these give, <a href="https://drive.google.com/drive/u/0/folders/1fiJxPxbXjObLS9NE3QJoT-8Vy9TRxv0r">this</a>.</p>
+<p>these give, <a href="https://drive.google.com/file/d/1vldoP2kRewWZq3pHvBLpyej67cIGE55m/view">this</a>.</p>
 <p>however, the reality is we care about minimizing the losses for both predictions with targets 0 and 1 well.</p>
 <p>Thus we need to focus on a loss function combining both versions of the loss function equation.</p>
 <p>To do this we use the prvious idea of a cost function:</p>
@@ -229,7 +229,7 @@ J(w,b)= \frac{1}{m} \sum_{i=1}^{m}[\mathrm{-log(f(x_i)+ -log (1-(f(x_i)))}
 J(w,b)= \frac{1}{m} \sum_{i=1}^{m}
 [-y_i(log(f(x_i))+((1−y_i)-log(1−f(x_i)))]
 </annotation></semantics></math></span>
-<p>which we can observe graphically as <a href="https://drive.google.com/drive/u/0/folders/1fiJxPxbXjObLS9NE3QJoT-8Vy9TRxv0r">such</a>.</p>
+<p>which we can observe graphically as <a href="https://drive.google.com/file/d/1VN0aR00WpdDfihWHqOl5Z0w2XbQHP40f/view">such</a>.</p>
 <p>with this, the idea of minimizing the cost function is more intuitive since it is clearly a sum of all loss functions for that w,b state.</p>
 <p><strong>notes:</strong>
 to converge this with gradient descent we use the same eqautions and principle for gradient descent as univariate and multivariate vectorized linear regression.</p>
