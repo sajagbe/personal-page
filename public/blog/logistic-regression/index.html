@@ -18,7 +18,9 @@ f(x)= \frac{1}{1&#43;e^{-z}}
 where z is 
   w⃗.x⃗&#43;b\vec{w}.\vec{x} &#43; b
 .
-This means if z is high or simply &#43;ve,  e^-z is very small and f(x) approaches 1 - and is approximated as 1. And for the erverse, it is approximately 0. This way all the data is transformed.">
+This means if z is high or simply &#43;ve,  
+  e−ze^{-z}
+ is very small and f(x) approaches 1 - thus, it is approximated as 1. And for the erverse, it is approximately 0. This way all the data is transformed.">
 <meta name="author" content="">
 <link rel="canonical" href="http://localhost:1313/blog/logistic-regression/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
@@ -185,7 +187,9 @@ f(x)= \frac{1}{1+e^{-z}}
 <p>where z is 
   <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>w</mi><mo>⃗</mo></mover><mi mathvariant="normal">.</mi><mover accent="true"><mi>x</mi><mo>⃗</mo></mover><mo>+</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">\vec{w}.\vec{x} + b</annotation></semantics></math></span>
 .</p>
-<p>This means if z is high or simply +ve,  e^-z is very small and f(x) approaches 1 - and is approximated as 1. And for the erverse, it is approximately 0. This way all the data is transformed.</p>
+<p>This means if z is high or simply +ve,  
+  <span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mo>−</mo><mi>z</mi></mrow></msup></mrow><annotation encoding="application/x-tex">e^{-z}</annotation></semantics></math></span>
+ is very small and f(x) approaches 1 - thus, it is approximated as 1. And for the erverse, it is approximately 0. This way all the data is transformed.</p>
 <p>when applied to a dataset, this will give a plot like <a href="https://drive.google.com/file/d/12yoHcTFsAtLODU9HnIxwkpn_gNhQy1qv/view">this</a>.</p>
 <h3 id="cost-function">cost function<a hidden class="anchor" aria-hidden="true" href="#cost-function">#</a></h3>
 <p>to measure the losses for the predictions, the log functions for f(x) is used. however, the predictions do not determine the losses with a single overall equation because for a target of 0, a prediction near 0 has minimal loss and a prediction near 1, has pretty much infinite loss, while it is the reverse for cases with target of 1. therefore there are different loss functions describing this reverse logic, viz:</p>

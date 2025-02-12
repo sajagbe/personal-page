@@ -17,7 +17,7 @@ $$
 
 where z is $\vec{w}.\vec{x} + b$. 
 
-This means if z is high or simply +ve,  e^-z is very small and f(x) approaches 1 - and is approximated as 1. And for the erverse, it is approximately 0. This way all the data is transformed. 
+This means if z is high or simply +ve,  $e^{-z}$ is very small and f(x) approaches 1 - thus, it is approximated as 1. And for the erverse, it is approximately 0. This way all the data is transformed. 
 
 when applied to a dataset, this will give a plot like [this](https://drive.google.com/file/d/12yoHcTFsAtLODU9HnIxwkpn_gNhQy1qv/view).
 

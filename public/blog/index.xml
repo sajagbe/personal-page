@@ -24,7 +24,9 @@ f(x)= \frac{1}{1+e^{-z}}
 &lt;p&gt;where z is 
   &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;.&lt;/mi&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\vec{w}.\vec{x} + b&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
 .&lt;/p&gt;
-&lt;p&gt;This means if z is high or simply +ve,  e^-z is very small and f(x) approaches 1 - and is approximated as 1. And for the erverse, it is approximately 0. This way all the data is transformed.&lt;/p&gt;</description>
+&lt;p&gt;This means if z is high or simply +ve,  
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;e^{-z}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ is very small and f(x) approaches 1 - thus, it is approximated as 1. And for the erverse, it is approximately 0. This way all the data is transformed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Z Score Normalization</title>
