@@ -2,6 +2,7 @@
 title = 'Logistic Regression'
 date = 2025-02-12T12:25:52-05:00
 draft = false
+tags = ["machine learning","andrew ng", "logistic regression"]
 +++
 
 

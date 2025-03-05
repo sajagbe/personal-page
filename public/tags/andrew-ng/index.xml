@@ -6,8 +6,28 @@
     <description>Recent content in Andrew Ng on soajagbe</description>
     <generator>Hugo -- 0.134.2</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2025 10:06:06 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2025 12:25:52 -0500</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/andrew-ng/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logistic Regression</title>
+      <link>http://localhost:1313/blog/logistic-regression/</link>
+      <pubDate>Wed, 12 Feb 2025 12:25:52 -0500</pubDate>
+      <guid>http://localhost:1313/blog/logistic-regression/</guid>
+      <description>&lt;h3 id=&#34;logistic-regression&#34;&gt;logistic regression&lt;/h3&gt;
+&lt;p&gt;here the predicted outputs are binary, either a 0 or a 1, therefore the challenge is finding an equation that can translate the input features to either of the choices.&lt;/p&gt;
+&lt;p&gt;To do this, they use the sigmoid function,viz:&lt;/p&gt;
+
+  
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34; display=&#34;block&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&#34;false&#34;&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;/mfrac&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;
+f(x)= \frac{1}{1+e^{-z}}
+&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+&lt;p&gt;where z is 
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mi mathvariant=&#34;normal&#34;&gt;.&lt;/mi&gt;&lt;mover accent=&#34;true&#34;&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo&gt;⃗&lt;/mo&gt;&lt;/mover&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;\vec{w}.\vec{x} + b&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+.&lt;/p&gt;
+&lt;p&gt;This means if z is high or simply +ve,  
+  &lt;span class=&#34;katex&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msup&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mrow&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;z&lt;/mi&gt;&lt;/mrow&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;e^{-z}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;
+ is very small and f(x) approaches 1 - thus, it is approximated as 1. And for the erverse, it is approximately 0. This way all the data is transformed.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Z Score Normalization</title>
       <link>http://localhost:1313/blog/z-score-norm/</link>
