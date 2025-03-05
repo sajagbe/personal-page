@@ -20,7 +20,7 @@ In fact, I finished the last 2 in less than 2 weeeks from the time I picked up b
 
 
 
-### Lines that made me feel and think.
+### Lines that made me feel and think:
 1. “And Morrison was left to wrestle with himself. He hated doing that, because he was a formidable opponent.” This made me laugh, it was like looking in a mirror. 
 2. “To say he was an indecisive man was an understatement. He might have seemed confident to others, but the truth was he’d never made a decision that he hadn’t come to regret on some level—which is why he often let decisions be made for him.”  
 3. “I long for the luxury of being impractical. It would add… texture… to my existence.”
@@ -42,7 +42,7 @@ In fact, I finished the last 2 in less than 2 weeeks from the time I picked up b
 19. “It’s not enough for you to know—you’ve got find it—so you can show others how to find it, too.” It’s one thing to know the answer, its a better thing to know how to figure out the answer. I enjoy experiencing the second.
 20. “Nothing in history was a firsthand account, and things known really meant things that were allowed to be known”
 
-### Good Lines
+### Good Lines:
 1. "Goddard was brilliant at finding shapes in the clouds of his fury." "More whim than wisdom. "
 2. “We couldn’t count our chickens before they were hatched.”
 “Or put our eggs in one basket,” added Baba. “I wonder which expression came first, the chickens or the eggs.”😂
