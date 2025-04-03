@@ -33,3 +33,4 @@ I also met friends I have till today and some objectively good professors.
 ### publications
 
 1. [solvatochromic pfas](https://pubs.rsc.org/en/content/articlelanding/2023/tc/d3tc03278g/unauth)
+2. [lov domain path to triplet](https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/chem.202500117)
