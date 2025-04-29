@@ -2,6 +2,7 @@
 title = 'Psi4 Installation'
 date = 2025-04-29T09:43:57-04:00
 draft = false
+tags = ["Quantum Chemistry", "Study"]
 +++
 
 

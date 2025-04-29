@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Quantum Chemistry on soajagbe</title>
+    <link>http://localhost:1313/tags/quantum-chemistry/</link>
+    <description>Recent content in Quantum Chemistry on soajagbe</description>
+    <generator>Hugo -- 0.134.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Apr 2025 09:43:57 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/quantum-chemistry/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Psi4 Installation</title>
+      <link>http://localhost:1313/blog/psi4-installation/</link>
+      <pubDate>Tue, 29 Apr 2025 09:43:57 -0400</pubDate>
+      <guid>http://localhost:1313/blog/psi4-installation/</guid>
+      <description>&lt;p&gt;Started the &lt;a href=&#34;https://www.udemy.com/course/introduction-to-quantum-chemistry-simulation/?referralCode=6859CB5EEE43242ACD2B&#34;&gt;MOLSSI Quantum Chemistry class&lt;/a&gt;. I’ve heard Psi4 in passing but I’ve not used it yet.&lt;/p&gt;
+&lt;p&gt;Chose to install it with conda - avoiding any dependency issues.
+Tried others on the &lt;a href=&#34;https://psicode.org/psi4manual/master/external.html&#34;&gt;psicode manual&lt;/a&gt;, which I had to eventually unistall and restart with the following:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda create -n psi4env -c conda-forge python&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;3.8 psi4
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;conda activate psi4env
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;this passed or skipped all of &lt;code&gt;psi4 --test&lt;/code&gt; , but only after &lt;code&gt;conda install pytest&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;PS: I am on a 2020 Mac-M1.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
