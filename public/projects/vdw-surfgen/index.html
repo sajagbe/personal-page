@@ -5,11 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="noindex, nofollow">
-<title>soajagbe</title>
-<meta name="keywords" content="">
-<meta name="description" content=" - soajagbe">
+<title>vdw-surfgen | soajagbe</title>
+<meta name="keywords" content="python, chemistry, molecular modelling, vdw, tools">
+<meta name="description" content="Wrote the titular package because we care about supramolecular chemistry.
+I will come back someday to clarify the Fibonnacci sphere algorithm, but for now, the gist is that the code uses the generation of an evenly spaced point sphere around a group of points in space to generate the Van der-Waals surface for a molecule.
+It counts the atoms as the origin points and the atomic VdW surfaces as the spheres. Then it excludes crossing points between spheres to create the accurate molecular VdW surface.">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/projects/">
+<link rel="canonical" href="http://localhost:1313/projects/vdw-surfgen/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.45e028aa8ce0961349adf411b013ee39406be2c0bc80d4ea3fc04555f7f4611a.css" integrity="sha256-ReAoqozglhNJrfQRsBPuOUBr4sC8gNTqP8BFVff0YRo=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -18,8 +20,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" type="application/rss+xml" href="http://localhost:1313/projects/index.xml">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/projects/vdw-surfgen/">
 <noscript>
     <style>
         #theme-toggle,
@@ -78,7 +79,7 @@
     
 </head>
 
-<body class="list" id="top">
+<body class="" id="top">
 <script>
     if (localStorage.getItem("pref-theme") === "dark") {
         document.body.classList.add('dark');
@@ -125,7 +126,7 @@
             </li>
             <li>
                 <a href="http://localhost:1313/projects/" title="projects">
-                    <span class="active">projects</span>
+                    <span>projects</span>
                 </a>
             </li>
             <li>
@@ -136,21 +137,41 @@
         </ul>
     </nav>
 </header>
-<main class="main"> 
+<main class="main">
 
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">vdw-surfgen
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Wrote the titular package because we care about supramolecular chemistry.
-I will come back someday to clarify the Fibonnacci sphere algorithm, but for now, the gist is that the code uses the generation of an evenly spaced point sphere around a group of points in space to generate the Van der-Waals surface for a molecule.
-It counts the atoms as the origin points and the atomic VdW surfaces as the spheres. Then it excludes crossing points between spheres to create the accurate molecular VdW surface.
-...</p>
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      vdw-surfgen
+    </h1>
+    <div class="post-meta"><span title='2025-07-13 14:10:36 -0400 EDT'>July 13, 2025</span>&nbsp;·&nbsp;1 min
+
+</div>
+  </header> 
+
+  <div class="post-content"><p>Wrote the titular package because we care about supramolecular chemistry.</p>
+<p>I will come back someday to clarify the Fibonnacci sphere algorithm, but for now, the gist is that the code uses the generation of an evenly spaced point sphere around a group of points in space to generate the Van der-Waals surface for a molecule.</p>
+<p>It counts the atoms as the origin points and the atomic VdW surfaces as the spheres. Then it excludes crossing points between spheres to create the accurate molecular VdW surface.</p>
+<p>The scale of the points and the distance of the spheres from the origin points (which is an atom&rsquo;s 3D coordinate in this case) is crucial, hence the options.</p>
+<p>You can find the code and further information <a href="https://github.com/sajagbe/vdw-surfgen">here</a> or install with <code>pip install vdw-surfgen</code>.</p>
+<p><strong>Reference:</strong></p>
+<ol>
+<li><a href="https://stackoverflow.com/questions/9600801/evenly-distributing-n-points-on-a-sphere#:~:text=The%20Fibonacci%20sphere%20algorithm%20is,a%20simple%20implementation%20in%20python.">Stack Overflow</a></li>
+</ol>
+
+
   </div>
-  <footer class="entry-footer"><span title='2025-07-13 14:10:36 -0400 EDT'>July 13, 2025</span>&nbsp;·&nbsp;1 min</footer>
-  <a class="entry-link" aria-label="post link to vdw-surfgen" href="http://localhost:1313/projects/vdw-surfgen/"></a>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/python/">Python</a></li>
+      <li><a href="http://localhost:1313/tags/chemistry/">Chemistry</a></li>
+      <li><a href="http://localhost:1313/tags/molecular-modelling/">Molecular Modelling</a></li>
+      <li><a href="http://localhost:1313/tags/vdw/">Vdw</a></li>
+      <li><a href="http://localhost:1313/tags/tools/">Tools</a></li>
+    </ul>
+  </footer>
 </article>
     </main>
     

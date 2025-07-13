@@ -2,7 +2,7 @@
 title = 'Claude Code Fix'
 date = 2025-07-13T14:03:25-04:00
 draft = false
-tags = ["claude", "code", "A.I", "programming"]
+tags = ["claude", "code", "A.I.", "programming"]
 +++
 
 Tried installing clade code and it seemed to work the first time, but when I tried running with the `claude` command, I got this error:

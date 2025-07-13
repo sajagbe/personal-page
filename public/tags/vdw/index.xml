@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Vdw on soajagbe</title>
+    <link>http://localhost:1313/tags/vdw/</link>
+    <description>Recent content in Vdw on soajagbe</description>
+    <generator>Hugo -- 0.134.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Jul 2025 14:10:36 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/vdw/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VDW Surfgen</title>
+      <link>http://localhost:1313/projects/vdw-surfgen/</link>
+      <pubDate>Sun, 13 Jul 2025 14:10:36 -0400</pubDate>
+      <guid>http://localhost:1313/projects/vdw-surfgen/</guid>
+      <description>&lt;p&gt;Wrote the titular package because we care about supramolecular chemistry.&lt;/p&gt;
+&lt;p&gt;I will come back someday to clarify the Fibonnacci sphere algorithm, but for now, the gist is that the code uses the generation of evenly spaced point sphere around a smaller sphere. The scale of the points and the distance from the small sphere (which is an atom in this case) is crucial, hence the options.&lt;/p&gt;
+&lt;p&gt;You can find the code and further information &lt;a href=&#34;https://github.com/sajagbe/vdw-surfgen&#34;&gt;here&lt;/a&gt; or install with &lt;code&gt;pip install vdw-surfgen&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

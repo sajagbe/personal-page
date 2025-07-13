@@ -13,12 +13,7 @@
       <link>http://localhost:1313/blog/claude-code-fix/</link>
       <pubDate>Sun, 13 Jul 2025 14:03:25 -0400</pubDate>
       <guid>http://localhost:1313/blog/claude-code-fix/</guid>
-      <description>&lt;p&gt;+++
-title = &amp;lsquo;Claude Code Installation Issue&amp;rsquo;
-date = 2025-07-13T13:56:37-04:00
-draft = false
-+++&lt;/p&gt;
-&lt;p&gt;Tried installing clade code and it seemed to work the first time, but when I tried running with the &lt;code&gt;claude&lt;/code&gt; command, I got this error:&lt;/p&gt;
+      <description>&lt;p&gt;Tried installing clade code and it seemed to work the first time, but when I tried running with the &lt;code&gt;claude&lt;/code&gt; command, I got this error:&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;npm error code EACCES
 npm error syscall rename
 npm error errno -13
@@ -26,7 +21,10 @@ npm error
 npm error Your cache folder contains root-owned files, due to a bug in
 npm error previous versions of npm which has since been addressed.
 npm error
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The fix was:&lt;/p&gt;</description>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The fix was:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;sudo chown -R $(whoami):$(id -gn) ~/.npm ~/.npm-global
+npm install -g @anthropic-ai/claude-code
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;literally 2 lines.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
