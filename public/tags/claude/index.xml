@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Claude on soajagbe</title>
+    <link>http://localhost:1313/tags/claude/</link>
+    <description>Recent content in Claude on soajagbe</description>
+    <generator>Hugo -- 0.134.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Jul 2025 14:03:25 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/claude/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Claude Code Fix</title>
+      <link>http://localhost:1313/blog/claude-code-fix/</link>
+      <pubDate>Sun, 13 Jul 2025 14:03:25 -0400</pubDate>
+      <guid>http://localhost:1313/blog/claude-code-fix/</guid>
+      <description>&lt;p&gt;+++
+title = &amp;lsquo;Claude Code Installation Issue&amp;rsquo;
+date = 2025-07-13T13:56:37-04:00
+draft = false
++++&lt;/p&gt;
+&lt;p&gt;Tried installing clade code and it seemed to work the first time, but when I tried running with the &lt;code&gt;claude&lt;/code&gt; command, I got this error:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;npm error code EACCES
+npm error syscall rename
+npm error errno -13
+npm error
+npm error Your cache folder contains root-owned files, due to a bug in
+npm error previous versions of npm which has since been addressed.
+npm error
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The fix was:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
