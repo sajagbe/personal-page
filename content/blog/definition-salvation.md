@@ -19,9 +19,9 @@ It is very crucial to be definite. To imagine a future truly worth experiencing 
   
 He also reiterates it when he opens the book with a discussion of the future:
 
-  >“what makes the future distinctive and important isn’t that it hasn’t happened yet, but rather that it will be a time when the world looks different from today”
+  >“*what makes the future distinctive and important isn’t that it hasn’t happened yet, but rather that it will be a time when the world looks different from today*”
 
-  > “Most answers to the contrarian question are different ways of seeing the present; good answers are as close as we can come to looking into the future.”
+  > “*Most answers to the contrarian question are different ways of seeing the present; good answers are as close as we can come to looking into the future.*”
 
 And later on, he discusses it explicitly:
  >“*If you treat the future as something definite, it makes sense to understand it in advance and to work to shape it. But if you expect an indefinite future ruled by randomness, you’ll give up on trying to master it.*”
