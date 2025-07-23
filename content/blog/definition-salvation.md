@@ -50,7 +50,7 @@ You can only be wrong by being specific, but it’s also the only way to be righ
 
 My experience of this has been that if you do not define a future for yourself, you devolve into an unrecognized persona. Not just a person, you become an actor of things you are not conscious of, an NPC. Your ideas, feelings and time will not be yours. Your days are spent watching yourself live and it is a truly sad experience to feel stuck in that. 
 
-I feared that definition of a future would be the definition of potential failure, but a lack of definition meant consistent failure, because all surrounding successes seemed attractive but were clearly not mine. These successes reminded me of my lack of attempts ad I felt terrible. Because I did not want to failt at one thing, I was failing at everything. 
+I feared that definition of a future would be the definition of potential failure, but a lack of definition meant consistent failure, because all surrounding successes seemed attractive but were clearly not mine. These successes reminded me of my lack of attempts and I felt terrible. Because I did not want to fail at one thing, I was failing at everything. 
 
 I have flirted with failure for so long, I seem to have forgotten the beauty of success.
 
