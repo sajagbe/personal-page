@@ -9,7 +9,19 @@
     <lastmod>2024-10-01T09:40:33-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-07-13T14:10:36-04:00</lastmod>
+    <lastmod>2025-07-23T10:09:02-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
+    <lastmod>2025-07-23T10:09:02-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/definition-salvation/</loc>
+    <lastmod>2025-07-23T10:09:02-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/philosophy/</loc>
+    <lastmod>2025-07-23T10:09:02-04:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
+    <lastmod>2025-07-23T10:09:02-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/projects/</loc>
     <lastmod>2025-07-13T14:10:36-04:00</lastmod>
@@ -23,9 +35,6 @@
     <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2025-07-13T14:10:36-04:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-07-13T14:10:36-04:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tags/tools/</loc>
     <lastmod>2025-07-13T14:10:36-04:00</lastmod>
   </url><url>
@@ -34,9 +43,6 @@
   </url><url>
     <loc>http://localhost:1313/projects/vdw-surfgen/</loc>
     <lastmod>2025-07-13T14:10:36-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2025-07-13T14:03:25-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/a.i./</loc>
     <lastmod>2025-07-13T14:03:25-04:00</lastmod>
@@ -60,9 +66,6 @@
     <lastmod>2025-06-07T22:03:48-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/munger-2007/</loc>
-    <lastmod>2025-06-07T22:03:48-04:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/philosophy/</loc>
     <lastmod>2025-06-07T22:03:48-04:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/psi4-installation/</loc>
